@@ -1,8 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>HgInit: Subversion Re-education</title>
+<meta charset="UTF-8" />
+<title>HgInit: Reeducação Subversion</title>
 
 <script src="c/jquery-1.4.1.js"></script>
 <script src="c/basic.js"></script>
@@ -68,164 +68,164 @@ pageTracker._trackPageview();
         <img src="i/logo.png" border="0" alt="HgInit Home" />
       </a>
   
-      If you&#8217;ve been using Subversion, Mercurial is going to be confusing.
-      This tutorial covers the biggest differences in how Mercurial works. 
-      If you&#8217;ve never used Subversion, just <a href="01.html">skip ahead</a>.
+      Para você que já tem usado Subversion, Mercurial pode ser um pouco confuso.
+      Este tutorial cobre as maiores diferenças e mostra como o Mercurial funciona.
+      Se você nunca usou Subversion, então <a href="01.html">siga adiante</a>.
 
   </div>
 </div>
 <div class="main">
-  <h1>Subversion Re-education</h1>
+  <h1>Reeducação Subversion</h1>
   <div class="content">
   
 <p>
-When the programmers at my company decided to switch from Subversion to Mercurial, <em>boy</em> was I confused.
+Quando os programadores de minha empresa decidiram migrar do Subversion para o Mercurial, <em>cara</em>, eu fiquei confuso.
 </p>
 
-<p>First, I came up with all kinds of stupid reasons why we shouldn&#8217;t switch. &#8220;We have to keep the repository on a central server, so it will be safe,&#8221; I said. You know what? I was wrong. In Mercurial every developer has a copy of the entire repository on their hard drive. It&#8217;s actually <em>safer</em>. And anyway, almost every Mercurial team uses a central repository, too, which you can back up compulsively, and you can build a three-ringed security zone complete with layers of Cylons, Stormtroopers, and adorable labradoodles (or whatever your IT department requires).</p>
+<p>Primeiro, eu vim com todos os tipos de razões estúpidas pelas quais nós não devíamos migrar.  &#8220;Precisamos manter o repositório num servidor central para que ter seguraça&#8221; eu disse.  E sabe de uma coisa?  Eu estava errado.  No Mercurial cada desenvolvedor tem uma cópia completa do repositório no seu disco rígido.  É na verdade <em>mais seguro</em>.  E de qualquer forma, praticamente toda equipe que usa Mercurial também utiliza um repositório centralizado, e você pode construir uma zona de segurança de três camadas com Cylons, Stormtroopers e os adoráveis labradoodles (ou o que quer que seja que seu departamento de TI precise).</p>
 
-<p>&#8220;The trouble with distributed version control is that it makes it too easy to branch,&#8221; I said, &#8220;and branching always causes problems.&#8221; Turns out this was wrong, too. I was on a streak. Branching causes problems <em>in Subversion</em> because <em>Subversion</em> doesn&#8217;t store enough information to make <em>merging</em> work. In <em>Mercurial,</em> merging is painless and easy, and so branching is commonplace and harmless.</p>
+<p>&#8220;O problema com controle de versão distribuído é que é muito fácil fazer ramificações,&#8221;, eu disse.  &#8220;E ramificações causam problemas.&#8221; Mas isto estava errado, também.  Eu me baseava nas minhas más experiências.  Ramificação causa problemas <em>no Subversion</em> porque <em>o Subversion</em> não armazena informação suficiente para fazer a <em>mesclagem</em> funcionar.  No <em>Mercurial</em>, a mesclagem é fácil e indolor, e então fazer ramificações é algo comum e inofensivo.</p>
 
-<p>Then I said, &#8220;Fine, I&#8217;ll use it, but don&#8217;t expect me to be able to figure it out.&#8221; And I asked Jacob to make me a cheat sheet listing all the things that I normally did in Subversion, and the equivalent way to do them in Mercurial.</p>
+<p>Daí eu disse, &#8220;Muito bem, vou usá-lo, mas não espere que eu seja capaz de entendê-lo.&#8221;  E então eu pedi ao Jacob para me fazer um cheat sheet listando todas as coisas que eu normalmente fazia no Subversion e a maneira equivalente de fazê-las no Mercurial.</p>
 
-<p>Now, I could show you this cheat sheet, but I won&#8217;t, because it messed up my brain for months.</p>
+<p>Eu poderia lhes mostrar este cheat sheet agora, mas eu não vou fazer isso porque estragaria meu cérebro por meses.</p>
 
-<p>It turns out that if you&#8217;ve been using Subversion, your brain is a little bit, um, how can I say this politely? You&#8217;re brain damaged. No, that&#8217;s not polite. You need a little re-education. I walked around brain damaged for six months thinking that Mercurial was <em>more</em> complicated than Subversion, but that was only because I didn&#8217;t understand how it really worked, and once I did, it turns out&#8212;hey presto!&#8212;it&#8217;s really kind of simple.</p>
+<p>Acontece que se você já usou o Subversion, seu cérebro é um pouquinho diferente.  Hum... como eu posso dizer de uma forma simpática?  Seu cérebro está danificado.  Não, isso não parece muito gentil.  Você precisa de uma pequena reeducação.  Eu fiquei com o cérebro danificado por uns seis meses, pensando como o Mercurial era <em>mais</em> complicado que o Subversion, mas isso apenas por que eu realmente não entendia como ele funciona.  E quando eu entendi, então a ficha caiu e tudo pareceu muito simples.</p>
 
-<p>So I wrote this tutorial for you, in which I have been very careful <em>not</em> to explain things in terms of Subversion, because there is just no reason to cause any more brain damage. The world is brain damaged enough. Instead, for those of you who are coming from Subversion, I&#8217;ve got this one chapter at the beginning that will try to reverse as much damage as possible so that you can learn Mercurial from a clean slate.</p>
+<p>Então eu escrevi este tutorial pra você no qual eu terei todo o cuidado para <em>não</em> explicar as coisas com base em como era no Subversion porque não há motivo para se causar mais danos cerebrais.  O mundo já tem danos cerebrais demais.  Ao invés disso, para aqueles que estão vindo do Subversion, eu pus este capítulo aqui no começo para tentar reverter estes danos tanto quanto possível para que você possa aprender Mercurial a partir do zero.</p>
 
-<p><strong>If you&#8217;ve never used Subversion, you can skip ahead to the next chapter (<a href="01.html">Ground Up Mercurial</a>) without missing anything.</strong></p>
+<p><strong>Se você nunca tiver usado Subversion, você pode pular para o próximo capítulo (<a href="01.html">Iniciando com Mercurial</a>) que não estará perdendo nada.</strong></p>
 
-<p>Ready? OK, let&#8217;s start with a short quiz.</p>
+<p>Pronto?  OK, vamos começar com algumas perguntas.</p>
 
-<p style="margin-left:2em;"><strong>Question 1.</strong> Do you write perfect code the first time?</p>
+<p style="margin-left:2em;"><strong>Pergunta 1.</strong> Você escreve código perfeito já na primeira vez?</p>
 
-<p>If you answered &#8220;Yes&#8221; to question 1, you&#8217;re a liar and a cheat. You fail. Take the test again.</p>
+<p>Se você respondeu &#8220;Sim&#8221; a esta pergunta, você é um mentiroso e um trapaceiro.  Você errou.  Volte e responda novamente.</p>
 
-<p>New code is buggy. It takes a while to get it working respectably. In the meantime, it can cause trauma for the other developers on the team.</p>
+<p>Código novo é propenso a erros.  Leva um tempo até que esteja funcionando adequadamente.  Enquanto isso, ele causa traumas para os desenvolvedores da equipe.</p>
 
-<p>Now, here&#8217;s how Subversion works:</p>
+<p>Agora, aqui está como o Subversion funciona:</p>
 
 <ul>
-    <li>When you check new code in, everybody else gets it.</li>
+    <li>Quando você submete código novo, todos os demais o obtém.</li>
 </ul>    
 
-<p>Since all new code that you write has bugs, you have a choice.</p>
+<p>Já que todo código novo que você escreve tem bugs, você tem uma escolha.</p>
 
 <ul>
-    <li>You can check in buggy code and drive everyone else crazy, or</li>
-    <li>You can avoid checking it in until it&#8217;s fully debugged.</li>
+    <li>Você pode submeter código bugado e deixar todo mundo maluco, ou</li>
+    <li>Você pode evitar de submetê-lo até que ele esteja totalmente depurado.</li>
 </ul>
 
 <p>
-  Subversion always gives you this horrible dilemma. Either the repository is full of bugs because it includes new code that was just written, <em>or</em> new code that was just written is not in the repository.</p>
+  O Subversion sempre lhe apresenta esse dilema terrível.  Ou o repositório está repleto de bugs porque ele inclui novo código que acaba de ser escrito, <em>ou</em> o código novo que foi escrito não está no repositório.</p>
 
-<p>As Subversion users, we are so used to this dilemma that it&#8217;s hard to imagine it not existing.</p>
+<p>Como usuário do Subversion, estamos tão acostumados com este dilema que é difícil imaginar que ele não exista.</p>
 
-<p>Subversion team members often go days or weeks without checking anything in. In Subversion teams, newbies are terrified of checking any code in, for fear of breaking the build, or pissing off Mike, the senior developer, or whatever. Mike once got so angry about a checkin that broke the build that he stormed into an intern&#8217;s cubicle and swept off all the contents of his desk and shouted, &#8220;This is your last day!&#8221; (It wasn&#8217;t, but the poor intern practically wet his pants.)</p>
+<p>Os membros de uma equipe que use Subvesion quase sempre passam dias ou semanas sem submeter nada.  Em equipes Subversion, novatos são atemorizados para não submeter seus códigos, por medo de quebrar o build, ou para não arranjar encrenca com o Mike, o desenvolvedor sênior, ou coisas do tipo.  O Mike uma vez ficou tão irritado com um checkin que quebrou o build que invadiu o local de trabalho do estagiário, derrubou várias coisas da mesa e gritou &#8220;Este é seu último dia aqui!&#8221;  (Eu não estava presente, mas o pobre estagiário quase fez xixi nas calças.)</p>
 
-<p>All this fear about checkins means people write code for weeks and weeks <em>without the benefit of version control</em> and then go find someone senior to help them check it in. Why have version control if you can&#8217;t use it?</p>
+<p>Com todo esse medo sobre checkins, as pessoas acabam por ficar escrevendo seus códigos por semanas <em>sem o benefício do controle de versão</em> até finalmente encontrar um colega sênior para lhes ajudar na hora de submeter o código.  Pra que serve um controle de versão se você não o utilizar?</p>
 
-<p>Here&#8217;s a simple illustration of life under Subversion:</p>
+<p>Aqui está uma ilustração simples de como é a vida no Subversion:</p>
 
 <div class="i">
   <img src="i/00-svn.png" />
 </div>
 
-<p>In Mercurial, <em>every developer has their own repository, living on their desktop:</em></p>
+<p>No Mercurial, <em>cada desenvolvedor tem seu próprio repositório, em suas áreas de trabalho:</em></p>
 
 <div class="i">
   <img src="i/00-hg.png" />
 </div>
 
-<p>So you can commit your code to your private repository, and get all the benefit of version control, whenever you like. Every time you reach a logical point where your code is a little bit better, you can commit it.</p>
+<p>Então você pode submeter seu código para seu repositório particular e ter assim todos os benefícios do controle de versão sempre que quiser.  E sempre que você alcançar algum ponto lógico quando seu código esteja um pouco melhor, você pode dar commit e submetê-lo.</p>
 
-<p>Once it&#8217;s solid, and you&#8217;re willing to let other people use your new code, you <em>push</em> your changes from your repository to a central repository that everyone else pulls from, and they finally see your code. When it&#8217;s ready.</p>
+<p>Quando seu código estiver bem consolidado e você tiver confiança para deixar com que outras pessoas o utilizem também, então você dá <em>push</em> nele e o &#8220;empurra&#8221; para um repositório central a partir do qual todos os demais podem &#8220;puxar&#8221; quando for o caso.</p>
 
-<p><em>Mercurial separates the act of committing new code from the act of inflicting it on everybody else.</em></p>
+<p><em>O Mercurial separa a ação de submeter novo código da ação de compartilhá-lo com todos os demais.</em></p>
 
-<p>And that means that you can commit (<strong>hg com</strong>) without anyone else getting your changes. When you&#8217;ve got a bunch of changes that you like that are stable and all is well, you push them (<strong>hg push</strong>) to the main repository.</p>
+<p>E isso significa que você pode dar commit em seu código (<strong>hg com</strong>) sem que ninguém mais receba as alterações que você está submetendo.  Quando tiver um conjunto de alterações que você goste, que estejam estáveis e tudo o mais, você as empurra (<strong>hg push</strong>) para o repositório principal.</p>
 
-<h2>One more big conceptual difference</h2>
+<h2>Mais uma grande diferença conceitual</h2>
 
-<p>You know how every single street has a name?</p>
+<p>Você sabe que cada rua de uma localidade tem um nome único, correto?</p>
  
-<p><img src="i/00-tokyo.png" style="float:right; margin-left: 1em; margin-bottom: 1em; border: 1px solid black;" />Well, yeah, turns out that in Japan, not so much. They usually just number the <a href="http://sivers.org/jadr">blocks</a> in between the streets, and only very, very important streets get names.</p>
+<p><img src="i/00-tokyo.png" style="float:right; margin-left: 1em; margin-bottom: 1em; border: 1px solid black;" />Sim, mas acontece que no Japão, não exatamente.  Eles normalmente só numeram os <a href="http://sivers.org/jadr">quarteirões</a> entre as ruas.  E só as ruas muito, muito importante têm nomes.</p>
 
-<p>There&#8217;s a similar difference between Subversion and Mercurial.</p>
+<p>Há uma diferença similar entre o Subversion e o Mercurial.</p>
 
-<p>Subversion likes to think about <em>revisions</em>. A revision is what the entire file system looked like at some particular point in time.
+<p>O Subversion gosta de pensar em <em>revisões</em>.  Uma revisão é como todo um sistema de arquivos se parecia em algum dado ponto no tempo.
 </p>
 
-<p>In Mercurial, you think about <em>changesets.</em> A changeset is a concise list of the changes between one revision and the next revision.</p>
+<p>No Mercurial, você pensa sobre <em>changesets</em>.  Um changeset é uma lista concisa das alterações que há entre uma revisão e a seguinte.</p>
 
-<p>Six of one, half dozen of the other: what&#8217;s the difference?</p>
+<p>Seis para uns, meia dúzia para outros: qual a diferença?</p>
 
-<p>Here&#8217;s the difference. Imagine that you and I are working on some code, and we branch that code, and we each go off into our separate workspaces and make lots and lots of changes to that code separately, so they have diverged quite a bit.</p>
+<p>Hei-la.  Imagine que você e eu estamos trabalhando em algum código, e que criamos uma ramificação nele e então cada um vai para nossos workspaces separados fazer muitas e muitas alterações no código separadamente.  Então nós divergimos um bocado.</p>
 
-<p>When we have to merge, Subversion tries to look at both revisions&#8212;my modified code, and your modified code&#8212;and it tries to guess how to smash them together in one big unholy mess. It usually fails, producing pages and pages of &#8220;merge conflicts&#8221; that aren&#8217;t really conflicts, simply places where Subversion failed to figure out what we did.</p>
+<p>Quando queremos fazer merge (ou mesclar) código, o Subversion procura olhar em ambas as revisões&#8212;o meu código modificado e o seu código modificado&#8212;e tenta advinhar como faz para montá-los juntos numa única grande maçaroca.  Nesse processo ele frequentemente falha, produzindo páginas e páginas de &#8220;conflitos de merge&#8221; que não são realmente conflitos, mas simplesmente lugares onde o Subversion não conseguiu determinar o que tinha de ser feito.</p>
 
-<p>By contrast, while we were working separately in Mercurial, Mercurial was busy keeping a <em>series of changesets</em>. And so, when we want to merge our code together, Mercurial actually has a whole lot more information: it knows <em>what each of us changed</em> and can <em>reapply those changes</em>, rather than just looking at the final product and trying to guess how to put it together.</p>
+<p>Por outro lado, enquanto estivemos trabalhando separados no Mercurial, ele estava ocupado mantendo uma <em>série de changesets</em>.  E então, quando nós quisemos mesclar nosso código junto, o Mercurial tem muito mais informação: ele sabe <em>o que cada um de nós alterou</em> e pode <em>reaplicar essas alterações</em>, ao invés de só olhar o resultado final e colocar tudo junto.</p>
 
-<p>For example, if I change a function a little bit, and then move it somewhere else, Subversion doesn&#8217;t really remember those steps, so when it comes time to merge, it might think that a new function just showed up out of the blue. Whereas Mercurial will remember those things separately: function changed, function moved, which means that if you <em>also</em> changed that function a little bit, it is much more likely that Mercurial will successfully merge our changes.</p>
+<p>Por exemplo, se eu tiver alterado uma função um pouquinho e depois mover o código para algum outro lugar, o Subversion não vai de fato lembrar desses passos, de sorte que na hora de fazer o merge vai parecer como se uma nova função simplesmente tivesse sido criada.  Ao passo que o Mercurial vai relembrar essas alterações separadamente: função alterada, função movida, o que significa que você <em>também</em> pode alterar a função mais um pouco.  Assim é muito mais provável que o Mercurial consiga mesclar nossas alterações com sucesso.</p>
 
-<p>Since Mercurial thinks of everything in terms of changesets, you get to do interesting things with those changesets. You can push them to a friend on the team to try them out, instead of pushing them to the central repository and inflicting them on everybody.</p>
+<p>Uma vez que o Mercurial pensa em tudo em termos de changesets, você pode fazer uma coisa interessante com estes changesets.  Você pode dar push nelas para um amigo na equipe experimentá-las, ao invés de empurrá-las para o repositório central e disponibilizá-las para todo mundo.</p>
 
-<p>If this all seems a bit confusing, don&#8217;t worry&#8212;by the time you get through this tutorial, it&#8217;ll all make perfect sense. For now the most important thing to know is that because Mercurial thinks in terms of &#8220;changesets&#8221; instead of &#8220;revisions&#8221; <em>it can merge code much better than Subversion</em>.</p>
+<p>Se isso parece um pouco confuso, não se preocupe, com o tempo ao longo deste tutorial vai fazer sentido perfeitamente.  Por hora, o mais importante a saber é que como o Mercurial pensa em termos de &#8220;changesets&#8221; ao invés de &#8220;revisões&#8221; <em>ele pode mesclar código bem melhor que o Subversion</em>.</p>
 
-<p>And that means that <em>you can feel free to branch</em> because the merge isn&#8217;t going to be a nightmare.</p>
+<p>E isso significa que <em>você pode ficar à vontade para criar ramificações</em> porque o merge em si não se tornará um pesadelo.</p>
 
-<p>Want to know something funny? Almost every Subversion team I&#8217;ve spoken to has told me some variation on the very same story. This story is so common I should just name it &#8220;Subversion Story #1.&#8221; The story is this: at some point, they tried to branch their code, usually so that the shipping version which they gave their customers can be branched off separately from the version that the developers are playing with. And every team has told me that when they tried this, it worked fine, <em>until they had to merge</em>, and then it was a nightmare. What should have been a five minute process ended up with six programmers around a single computer working for two weeks trying to manually reapply every single bug fix from the stable build back into the development build.</p>
+<p>Quer ouvir uma coisa engraçada?  Quase toda a equipe de desenvolvedores do Subversion com quem eu tenho falado me disse, com algumas variações, a mesma coisa.  Esta história é tão comum que eu a chamo de &#8220;a História do Subversion #1.&#8221;  A história é a seguinte: em algum momento, eles tentaram ramificar seu código.  Normalmente a versão de lançamento que eles disponibilizam antes para seus clientes pode ser criada num ramo em separado da versão com a que os desenvolvedores estão trabalhando no dia-a-dia.  E cada equipe me disse que quando tentavam fazer isso, tudo funcionava perfeitamente, mas só <em>até a hora que eles tinham que fazer merge</em> e então se tornava um pesadelo.  Um processo que poderia ser feito em cinco minutos resultou em seis programadores sentados ao redor de um computador por duas semanas tentando reaplicar manualmente cada única correção de bug da base de código estável de volta para o desenvolvimento.</p>
 
-<p>And almost every Subversion team told me that they vowed &#8220;never again,&#8221; and they swore off branches. And now what they do is this: each new feature is in a big #ifdef block. So they can work in one single trunk, while customers never see the new code until it&#8217;s debugged, and frankly, that&#8217;s ridiculous.</p>
+<p>E quase todos os membros da equipe do Subversion me disseram que eles juraram &#8220;nunca mais&#8221; trabalhar dessa forma e então baniram o uso de ramos.  E agora eles fazem assim: cada nova funcionalidade tem um grande bloco #ifdef.  Assim eles podem trabalhar num único tronco ainda que os clientes nunca vejam o novo código até que ele esteja depurado.  Francamente, isso é ridículo!</p>
 
-<p>Keeping stable and dev code separate is <em>precisely what source code control is supposed to let you do</em>.</p>
+<p>Manter código estável e código em desenvolvimento separados é <em>precisamente o que um controle de versão de código-fonte deve lhe permitir fazer</em>.</p>
 
-<p>When you switch to Mercurial, you may not even realize it, but branching becomes possible again, and you don&#8217;t have to be afraid.</p>
+<p>Quando você migra para o Mercurial, você pode nem perceber, mas ramificação se torna possível novamente e você não precisa temer.</p>
 
-<p>That means you can have team repositories, where a small team of programmers collaborates on a new feature, and when they&#8217;re done, they merge it into the main development repository, and <em>it works!</em></p>
+<p>Isso significa que você pode ter repositórios de equipes, em que um pequeno grupo de programadores colabora em uma nova funcionalidade e, quando eles tiverem terminado, eles fazem merge e incorporam suas alterações no repositório principal de desenvolvimento.  E <em>funciona!</em></p>
 
-<p>That means you can have a QA repository that lets the QA team try out the code. If it works, the QA team can push it up to the central repository, meaning, the central repository always has solid, tested code. And <em>it works!</em></p>
+<p>Isso significa que você pode ter um repositório para QA e deixar a equipe de qualidade avaliar o código.  Se o código funciona, a equipe de QA pode fazer push e incorporá-lo ao repositório central.  Quer dizer, o repositório central sempre tem código robusto e testado.  E que <em>funciona!</em></p>
 
-<p>That means you can run experiments in separate repositories, and if they work, you can merge them into the main repository, and if they don&#8217;t work, you can abandon them, and <em>it works!</em></p>
+<p>Isso significa que você pode até fazer experiências em repositórios separados, e se tudo funcionar, você pode incorporá-las no repositório principal; e se não funcionar você pode descartá-las.  E tudo <em>funciona!</em></p>
 
-<h2>One last big conceptual difference</h2>
+<h2>Uma última grande diferença conceitual</h2>
 
-<p>The last major conceptual difference between Subversion and Mercurial is not as big a deal, but it will trip you up if you&#8217;re not aware of it, and here it is:</p>
+<p>A última grande diferença conceitual entre o Subversion e o Mercurial não é grande coisa, mas pode lhe enganar se você não atentar para ela.  Hei-la:</p>
 
-<p>Subversion is basically revision control for <em>files,</em> but in Mercurial, revision control always applies to an entire directory&#8212;including all subdirectories.</p>
+<p>O Subversion é basicamente um controle de revisões para <em>arquivos</em>, enquanto que no Mercurial o controle de revisões sempre se aplica a um diretório inteiro&#8212;incluindo todos os seus subdiretórios.</p>
 
-<p>The main way you notice this is that in Subversion, if you go into a subdirectory and commit your changes, it only commits changes in that subdirectory and all directories below it, which potentially means you&#8217;ve forgotten to check something in that lives in some other subdirectory which also changed. Whereas, in Mercurial, all commands always apply to the entire tree. If your code is in <strong>c:\code</strong>, when you issue the <strong>hg commit</strong> command, you can be in <strong>c:\code</strong> or in <em>any subdirectory</em> and it has the same effect.</p>
+<p>A principal forma de notar isso é que no Subversion, se você entrar em um subdiretório e der commit em suas alterações, ele apenas submete suas alterações naquele subdiretório e nos demais abaixo dele, o que quer dizer que você eventualmente pode esquecer de submeter algo que esteja em algum outro diretório e que também mudou.  Enquanto que, no Mercurial, todos os comandos se aplicam a toda a árvore de diretórios.  Se seu código estiver em <strong>c:\code</strong>, quando você executar um <strong>hg commit</strong>, você pode estar em <strong>c:\code</strong> ou em <em>qualquer subdiretório</em> que o comando terá o mesmo efeito.</p>
 
-<p>This is not a big deal, but if you&#8217;re used to having one big gigantic repository for the whole company, where some people only check out and work on subdirectories that they care about, this isn&#8217;t a very good way to work with Mercurial&#8212;you&#8217;re better off having lots of smaller repositories for each project.</p>
+<p>Isso não é um grande problema, mas se você costumava ter um único repositório gigantesco para toda a empresa, onde algumas pessoas trabalhavam apenas nos subdiretórios relevantes para elas, isto não é uma forma muito boa de se trabalhar com o Mercurial&#8212;em vez disso seria bem melhor ter diversos repositórios menores para cada projeto.</p>
 
-<h2>And finally&#8230;</h2>
+<h2>E finalmente&#8230;</h2>
 
-<p>Here&#8217;s the part where you&#8217;re just going to have to take my word for it.</p>
+<p>Esta é a parte em que você tem apenas que confiar no que vou dizer.</p>
 
-<p>Mercurial is better than Subversion.</p>
+<p>O Mercurial é melhor que o Subversion.</p>
 
-<p>It is a better way of working on source code with a team. It is a better way of working on source code by yourself.</p>
+<p>É a melhor maneira de trabalhar com código-fonte em equipe.  Também é a melhor maneira de trabalhar em código-fonte sozinho.</p>
 
-<p>It is just <em>better.</em></p>
+<p>É simplesmente <em>o melhor.</em></p>
 
-<p>And, mark my words, if you understand the way Mercurial works, and you work the way Mercurial works, and you don&#8217;t try to fight it, and you don&#8217;t try to do things the old Subversion way using Mercurial but instead you learn to work the way Mercurial expects you to work, you will be happy, successful, and well-fed, and you&#8217;ll always be able to find the remote control to the TV.</p>
+<p>E, preste atenção no que estou lhe dizendo, se você entende a forma como o Mercurial trabalha, você pode trabalhar com ele de forma adequada.  Não fique brigando com ele tentando fazer as coisas do antigo jeito que você pensaria em fazer no Subversion, mas ao invés disso, aprenda a trabalhar da maneira que o Mercurial espera que você trabalhe e você será feliz, terá sucesso e será sempre capaz de encontrar o controle remoto da sua TV.</p>
 
-<p>And in the early days, you will be tempted, I know you will, to give up on Mercurial and go back to Subversion, because it will be strange, like living in a foreign country, and you&#8217;ll be homesick, and you will come up with all kinds of rationalizations, like, for example, you will claim that Mercurial working directories take up too much disk space, which is bologna, because, actually, they usually take up less space than Subversion directories. (It&#8217;s true!)</p>
+<p>Nos primeiros dias, eu sei, você pode ter vontade de desistir do Mercurial e voltar a usar o Subversion, porque a mudança será estranha, mais ou menos como se mudar para um país estrangeiro e você passa a sentir saudade de casa.  Você pode começar a pensar em um monte de argumentos para fugir dele, como por exemplo, achar que os arquivos de controle do Mercurial ocupam muito espaço em disco ou coisas do tipo&#8212;o que aliás é uma falácia, pois na verdade eles normalmente ocupam menos espaço que os diretórios do Subversion.  (É verdade!)</p>
 
-<p>And then you&#8217;ll go back to Subversion because you tried to branch the Subversion way, and you got confused, and it didn&#8217;t work so well, because you really should have been branching the Mercurial way, by cloning repositories, not by trying to do the things that work in Subversion, but by learning the Mercurial way of doing things, which, trust me, <em>works.</em></p>
+<p>E então você volta para o Subversion porque você tentou trabalhar com ramificações do jeito do Subversion, e ficou confuso e nada funcionou direito porque você na verdade devia ter lidado com ramificações do jeito do Mercurial&#8212;clonando diretórios&#8212;e não tentando fazer do mesmo jeito que você fazia no Subversion, mas sim tentando aprender a maneira do Mercurial de fazer as coisas que, confie em mim, <em>funciona.</em></p>
 
-<p>And then you&#8217;ll get Jacob, or whoever the equivalent of Jacob is at your office, to give you the &#8220;Subversion to Mercurial cheat sheet,&#8221; and you&#8217;ll spend three months thinking that <strong>hg fetch</strong> is just like <strong>svn up</strong>, without really knowing what <strong>hg fetch</strong> does, and one day, things will go wrong and you&#8217;ll blame Mercurial, when you really should be blaming yourself for not understanding how Mercurial works.</p>
+<p>E então eis que chega o Jacob, ou quem quer que seja equivalente ao Jacob no seu escritório, para lhe dar um &#8220;cheat sheet com equivalência de comandos do Subversion e Mercurial&#8221; e então você vai gastar três meses pensando que o <strong>hg fetch</strong> é a mesma coisa que o <strong>svn up</strong>, sem realmente se dar conta que o <strong>hg fetch</strong> faz, até que um dia as coisas começam a dar problema e você passa a dizer que a culpa é do Mercurial, quando você realmente devia assumir que a culpa é sua por não entender realmente como o Mercurial funciona.</p>
 
-<p>I know you&#8217;ll do that because that is what I did.</p>
+<p>Eu sei que você vai fazer isso porque foi isso que eu fiz também.</p>
 
-<p>Don&#8217;t make the same mistake. Learn Mercurial, trust Mercurial, and figure out how to do things the Mercurial way, and you will move an entire generation ahead in source code control. While your competitors are busy taking a week to resolve all the merge conflicts they got when a vendor updated a library, you&#8217;re going to type <strong>hg merge</strong> and say to yourself, &#8220;Oh gosh, that&#8217;s cool, it just worked.&#8221; And Mike will chill out and share a doobie with the interns, and soon it will be spring and the kids at the nearby college will trade in their heavy parkas for skimpy A&amp;F pre-torn T-shirts, and life will be good.</p>
+<p>Não cometa o mesmo erro.  Aprenda o Mercurial, confie no Mercurial e descubra como fazer as coisas do jeito do Mercurial.  Você vai evoluir muito em termos de controle de versão de código-fonte.  Enquanto seus concorrentes estiverem ocupados gastando semanas para resolver conflitos de merge que tiveram ao atualizar uma biblioteca, você vai estar digitando <strong>hg merge</strong> e dizendo pra si mesmo: &#8220;Show de bola!  Funcionou de boa!&#8221;  E o Mike vai comemorar pagando uma pizza para os estagiários e logo chegará a primavera e as crianças sairão para brincar nas férias e sua vida será uma maravilha.</p>
 
 <div class="footer">
  <div class="footernav" id="home" align="center"><a href="index.html"><span class="angleQuote">&#171;</span> Home</a></div>
  
- <div class="footernav" id="comingup">Coming up: Mercurial<br />from the ground up.</div>
- <div class="footernav" id="next" align="center"><a href="01.html">Next <span class="angleQuote">&#187;</span></a></div>
+ <div class="footernav" id="comingup">A seguir: Mercurial<br />partindo do zero.</div>
+ <div class="footernav" id="next" align="center"><a href="01.html">Próximo <span class="angleQuote">&#187;</span></a></div>
 
 
  
