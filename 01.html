@@ -1,8 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>HgInit: Ground Up Mercurial</title>
+<meta charset="UTF-8" />
+<title>HgInit: Mercurial partindo do zero</title>
 
 <script src="c/jquery-1.4.1.js"></script>
 <script src="c/basic.js"></script>
@@ -68,38 +68,39 @@ pageTracker._trackPageview();
         <img src="i/logo.png" border="0" alt="HgInit Home" />
       </a>
   
-  Even if you&#8217;re working by yourself, 
-  you should use Mercurial to get the 
-  benefits of version control. This tutorial shows 
-  how easy it is to check a directory into Mercurial 
-  so you can track old versions easily.
+  Mesmo se você estiver trabalhando sozinho, 
+  você deveria utilizar o Mercurial para ter os
+  benefícios do controle de versão.  Este tutorial
+  mostra como é fácil pôr um diretório no Mercurial
+  para que você possa acompanhar a evolução das
+  versões facilmente.
 
   </div>
 </div>
 <div class="main">
-  <h1>Ground Up Mercurial</h1>
+  <h1>Mercurial partindo do zero</h1>
   <div class="content">
   
                         <p>
-                          Mercurial is a <em>version control system</em>. Developers use it to manage source code.
-                          It serves two important purposes:
+                          O Mercurial é um <em>sistema de controle de versão</em>.  Os desenvolvedores o utilizam para gerenciar código-fonte.
+                          Ele serve a dois importantes propósitos:
                         </p>
                         
                         <ol>
-                          <li>It keeps track of every old version of every file</li>
-                          <li>It can merge different versions of your code, so that teammates can work independently on the code and then merge their changes</li>
+                          <li>Mantém um rastro de cada uma das versões anteriores de cada arquivo</li>
+                          <li>Pode consolidar diferentes versões de seu código, de forma que seus colegas de trabalho podem trabalhar de maneira independente no código e então mesclar suas alterações</li>
                         </ol>
                         
-                        <p>Without Mercurial, you could try to keep old versions 
-                        just by making a lot of copies of the directory containing all your code:</p>
+                        <p>Sem o Mercurial, você poderia tentar manter versões antigas
+                        simplesmente fazendo várias cópias do diretório contendo todo o seu código:</p>
                         
                         <div class="i">
                           <img src="i/01-copies.png">
                         </div>
                         
-                        <p>This is tedious, takes up a lot of disk space, and confusing. Using version control is a better way to do this.</p>
+                        <p>Isto é tedioso, gasta muito espaço em disco e é confuso.  Utilizar um controle de versão é a melhor maneira de fazer isso.</p>
                         
-                        <p>Most people work with Mercurial through the command line, which works on Windows, Unix, and Mac. The command for Mercurial is <strong>hg</strong>:
+                        <p>A maioria das pessoas trabalha com o Mercurial diretamente na linha de comando, que funciona em Windows, Unix e Mac.  O comando do Mercurial é <strong>hg</strong>:
                         </p>
                         
                         <div class="codesnippet">
@@ -133,11 +134,11 @@ use "hg help" for the full list of commands or "hg -v" for details
                           <div class="codebottom"> </div>
                         </div>
     
-<p>Typing <strong>hg</strong> without anything else gives you a list of the most common commands that are available. You can also try <strong>hg help</strong> for a complete list of commands.</p>
+<p>Digitar <strong>hg</strong> sem qualquer outra coisa lhe dá uma lista dos comandos mais comuns que estão disponíveis.  Você também pode tentar <strong>hg help</strong> para uma lista completa de comandos.</p>
 
-<p>To take advantage of version control, you needed a <em>repository</em>. A repository stores all your old versions of every file. To save disk space, it&#8217;s not actually going to store every old version&#8212;it&#8217;s just going to store a compact list of changes.</p>
+<p>Para tirar vantagem do controle de versão, você precisa de um <em>repositório</em>.  Um repositório armazena todas as versões anteriores de cada um de seus arquivos.  Para economizar espaço em disco, ele na verdade não armazena uma cópia de cada versão&#8212;ele apenas armazena uma lista compacta das alterações feitas.</p>
 
-<p>In the old days, getting a repository was a big deal. You had to have a central server somewhere and you had to install software on it. Mercurial is <em>distributed</em>, so you can use it without a fancy central server. You can run it entirely on your own computer. And getting a repository is super-easy: you just go into the top-level directory where all your code lives&#8230;</p>
+<p>Antigamente, criar um repositório era uma complicação.  Você tinha que ter um servidor central em algum lugar e tinha que instalar software nele.  O Mercurial é <em>distribuído</em>, ou seja, você pode usá-lo sem nenhum servidor central.  Você pode executá-lo inteiramente em seu próprio computador.  E criar um repositório é super-fácil: você só tem que entrar no diretório onde seu código vai ficar&#8230;</p>
 
 
 <div class="codesnippet">
@@ -166,14 +167,14 @@ DevDaysCountDown.csproj   favicon.ico               [Images]
 
 </div>
 
-<p>&#8230; there&#8217;s my code, and you type <strong>hg init</strong>:</p>
+<p>&#8230; aqui está o meu código, então basta digitar <strong>hg init</strong>:</p>
 
 
 <div class="cheatcontent" style="margin-top:-50px">
 <div class="cheattop">
 	<div class="command">hg init</div>
 </div>
-<p class="cheattext">creates a repository</p>
+<p class="cheattext">cria um repositório</p>
 <img src="i/cheatbot.png" width="241" height="41" />
 </div>
 
@@ -188,7 +189,7 @@ c:\hginit\CountDown&gt;
 </pre>
 <div class="codebottom"> </div>
 </div>
-<p>Wait a minute, did anything happen? It doesn&#8217;t look like anything happened. But if you look closely, you&#8217;ll see that there&#8217;s a new directory there, named <strong>.hg</strong>:</p>
+<p>Ué, mas aconteceu alguma coisa?  Parece que não aconteceu nada, mas se você prestar atenção, você vai ver que agora há um novo diretório chamado <strong>.hg</strong>:</p>
 <div class="codesnippet">
 <div class="codetop"> </div>
 <pre class="cl">
@@ -209,16 +210,16 @@ CountDown.xaml.cs         DevDaysCountDown.csproj   favicon.ico
 <div class="codebottom"> </div>
 </div>
 
-<p>That&#8217;s the repository! It&#8217;s a directory full of everything Mercurial needs. Settings, old version of files, tags, an extra pair of socks for when it rains, etc. <em>Don&#8217;t go in there.</em> You are almost never going to want to mess with that directory directly.</p>    
+<p>Isso é o repositório!  É um diretório repleto de tudo o que o Mercurial precisa.  Configurações, versões antigas dos arquivos, tags, um par extra de meias para os dias de chuva, etc.  <em>Não entre nesse diretório!</em>  Você talvez nunca vá querer mexer com seu conteúdo diretamente.</p>    
     
   
-<p>OK, now that we have a fresh new repository, we&#8217;re going to want to add all these source files to it. That&#8217;s easy, too: just type <strong>hg add</strong>.</p>
+<p>OK, agora que nós já temos um novo repositório, vamos querer adicionar todos esses arquivos nele.  É fácil também: apenas digite <strong>hg add</strong>.</p>
 
 <div class="cheatcontent" style="margin-top:-60px">
 <div class="cheattop">
 	<div class="command">hg add</div>
 </div>
-<p class="cheattext">schedules files to be added to the repository. They won&#8217;t actually be added until you commit </p>
+<p class="cheattext">marca os arquivos para serem adicionados ao repositório.  Eles não serão adicionados efetivamente até que você dê commit</p>
 <img src="i/cheatbot.png" width="241" height="41" />
 </div>
 
@@ -259,16 +260,16 @@ adding favicon.ico
 <div class="codebottom"> </div>
 </div>
 
-<p>There&#8217;s still one more step&#8230; you have to <em>commit</em> your changes. What changes? The change of adding all those files.</p>
+<p>Ainda tem mais um passo aqui&#8230; você tem que efetivar suas alterações com um <em>commit</em>.  Que alterações?  A alteração que corresponde a adicionar todos aqueles arquivos.</p>
 
-<p>Why do you have to commit? With Mercurial, committing says &#8220;hey, the way the files look right now&#8212;please remember that.&#8221; It&#8217;s like making a copy of the whole directory&#8230; every time you have something that you&#8217;ve changed that you sorta like, you commit.</p>
+<p>Por que você tem que dar commit?  Com o Mercurial, executar um commit equivale a dizer &#8220;ei, está vendo como os arquivos estão agora?&#8212;por favor, lembre disso.&#8221;  É como fazer uma cópia de cada diretório&#8230; toda vez que você tenha alterado alguma coisa que você possa gostar de manter, você dá commit.</p>
 
 <!-- hg commit box -->
 <div class="cheatcontent" style="margin-top:-80px">
 <div class="cheattop">
 	<div class="command">hg commit</div>
 </div>
-<p class="cheattext">saves the current state of all files to the repository </p>
+<p class="cheattext">salva o estado atual de todos os arquivos do repositório</p>
 <img src="i/cheatbot.png" width="241" height="41" />
 </div>
 
@@ -281,23 +282,23 @@ c:\hginit\CountDown&gt; <strong>hg commit</strong>
 <div class="codebottom"> </div>
 </div>
 
-<p>Mercurial will pop up an editor so that you can type a commit message. This is just something you type to remind yourself of what changed in this commit.</p>
+<p>O Mercurial vai abrir um editor de texto para que você possa digitar uma mensagem de commit.  É apenas algo que você escreve para lembrar a você mesmo do que mudou com este commit.</p>
 
 
   <img src="i/01-commit0.png">
 
-<p>When you save and exit, your files will be committed.</p>
+<p>Quando você salvar e sair do editor, o commit de seus arquivos estará concluído.</p>
 
 
 
-<p>You can type <strong>hg log</strong> to see a history of changes. It&#8217;s like your repository&#8217;s blog:</p>
+<p>Você pode digitar <strong>hg log</strong> para ver um histórico das alterações.  É como se fosse o blog do seu repositório:</p>
 
 <!-- hg log box -->
 <div class="cheatcontent" style="margin-top:-50px">
 <div class="cheattop">
 	<div class="command">hg log</div>
 </div>
-<p class="cheattext">shows the history of changes committed to the repository </p>
+<p class="cheattext">mostra o histórico de alterações submetidas no repositório</p>
 <img src="i/cheatbot.png" width="241" height="41" />
 </div>
 
@@ -313,7 +314,7 @@ summary:     Initial version of the CountDown code</pre>
 <div class="codebottom"> </div>
 </div>
 
-<p>Let&#8217;s edit a file and see what happens.</p>
+<p>Vamos editar algum arquivo e ver o que acontece.</p>
 
  <!-- edit text file module -->
    <div class="edit1">
@@ -346,7 +347,7 @@ summary:     Initial version of the CountDown code</pre>
  <!-- end edit text file module -->
  
  
- <p>Now that we&#8217;ve made another change, we can commit it using <strong>hg commit</strong>:</p>
+ <p>Agora que fizemos uma outra alteração, podemos submetê-la usando <strong>hg commit</strong>:</p>
 
 <div class="codesnippet">
 <div class="codetop"> </div>
@@ -356,13 +357,13 @@ c:\hginit\CountDown&gt; <strong>hg commit</strong>
 <div class="codebottom"> </div>
 </div>
 
-<p>Notice that Mercurial has figured out that only one file, a.txt, changed:</p>
+<p>Veja que o Mercurial percebeu que apenas um arquivo, a.txt, sofreu alteração:</p>
 
 
   <img src="i/01-commit1.png">
 
 
-<p>And now that I&#8217;ve committed, let&#8217;s take a look at the log:</p>
+<p>Com o commit efetivado, vamos dar uma olhada no log:</p>
 
 <div class="codesnippet">
 <div class="codetop"> </div>
@@ -383,9 +384,9 @@ summary:     Initial version of the CountDown code
 </div>
 
 
-<p>Like any modern blogger, Mercurial puts the newest stuff on top.</p>
+<p>Como em qualquer blog, o Mercurial mostra as atualizações mais recentes primeiro.</p>
 
-<p>I&#8217;m going to make one more change, just to amuse myself.</p>
+<p>Vou alterar mais alguma coisa, só por diversão.</p>
 
 
   <div class="edit1">
@@ -415,7 +416,7 @@ broken</strong>, don't fix it. Engineers believe that if it
  <div style="clear: both;">&nbsp;</div>
 
 
-<p>Committing:</p>
+<p>Executando o commit:</p>
 
 <div class="codesnippet">
 <div class="codetop"> </div>
@@ -425,13 +426,13 @@ c:\hginit\CountDown&gt; <strong>hg commit</strong>
 <div class="codebottom"> </div>
 </div>
 
-<p>My commit message:</p>
+<p>Minha mensagem para este commit:</p>
 
 
   <img src="i/01-commit2.png">
 
 
-<p>And now what does the log show?</p>
+<p>E agora, como está o log?</p>
 
 <div class="codesnippet">
 <div class="codetop"> </div>
@@ -456,16 +457,16 @@ summary:     Initial version of the CountDown code
 <div class="codebottom"> </div>
 </div>
 
-<p>OK, that was a lot of fun. I made some changes, and each time
-I made a significant change, I committed it to the repository.</p>
+<p>OK, foi divertido.  Eu fiz algumas alterações e toda vez que fiz
+alguma alteração significativa eu as submeti para o repositório.</p>
 
-<p>I know what you&#8217;re thinking. You&#8217;re thinking, &#8220;JOEL, THIS ALL SEEMS LIKE A BIG WASTE OF TIME.&#8221; 
-Why go through all this rigamarole of committing?
+<p>Eu sei o que você está pensando agora.  Você está pensando: &#8220;JOEL, ISSO PARECE GASTAR MUITO TEMPO.&#8221;
+Precisa mesmo de toda essa lenga-lenga?
 </p>
 
-<p>Patience, young grasshopper. You&#8217;re about to learn how to get some benefit out of this.</p>
+<p>Tenha calma, jovem gafanhoto.  Você está prestes a aprender como se beneficiar de tudo isso.</p>
 
-<p>Number one. Let&#8217;s say you make a huge mistake editing.</p>
+<p>Número um.  Digamos que você cometa um grande erro ao editar.</p>
 
 
  <!-- edit text file module -->
@@ -495,8 +496,8 @@ talk about in terms of not having it.</strong>
  <!-- end edit text file module -->
  
 
-<p>And then, gosh, just for good measure you delete a couple of 
-really important files.</p>
+<p>E então, hum, digamos que você acidentalmente delete alguns arquivos
+realmente importantes.</p>
 
 
 <div class="codesnippet">
@@ -509,32 +510,32 @@ c:\hginit\CountDown> <strong>del App.xaml</strong>
 <div class="codebottom"> </div>
 </div>
 
-<p>In the days before Mercurial, this would be a good opportunity to go crying 
-to the system administrator and asking piercingly sad questions about
-<em>why</em> the backup system is &#8220;temporarily&#8221; out of commission and has been
-for the last eight months.</p>
+<p>Na época antes do Mercurial, esta poderia ser uma boa oportunidade para se
+lamentar com o administrador do sistema e perturbá-lo com questões como
+<em>porque</em> o sistema de backup para aquela máquina está &#8220;momentaneamente&#8221;
+desabilitado já há mais de oito meses.</p>
 
-<p>The system administrator, whom everybody calls Taco, is too shy to eat lunch
-with the rest of the team. On those rare occasions where he is away from his swivel office 
-chair, you will notice a triangular-shaped salsa-colored stain on the seat where 
-drippings of his many Mexican lunches fell between his legs, insuring that nobody takes 
-his chair, even though it is the superior Herman Miller variety that the company founders bought 
-themselves, not the standard-issue Staples $99 special that causes everyone else
-back pain.</p>
+<p>O administrador do sistema, que todo mundo chama da Taco, é tão tímido e retraído
+que sequer almoça junto com os demais colegas de equipe.  Nas das raras vezes em
+que você não o vê na sua estação de trabalho, dá pra se ver as migalhas de seus
+lanches e comida mexicana sobre o assento de sua cadeira giratória, um indício de que
+ninguém além dele usa aquela cadeira.  Ainda que seja uma Herman Miller especial
+de encosto almofadado que foram compradas para os diretores da empresa e não as
+cadeiras Staples padrão mais baratas e que dão dor nas costas de qualquer um.</p>
 
-<p>Anyway, yeah, there&#8217;s no backup.</p>
+<p>De qualquer forma: sim, não tem backup.</p>
 
 
-<p>Thanks to Mercurial, though, when you&#8217;re unhappy with your changes, you can just issue
-the handy command <strong>hg revert</strong> which will immediately revert
-your directory back to the way it was at the time of the last commit.</p>
+<p>Graças ao Mercurial, porém, quando você não estiver satisfeito com suas alterações, você pode
+lançar mão do comando <strong>hg revert</strong> que vai reverter imediatamente o seu diretório
+ao jeito como ele estava no momento do último commit.</p>
 
 <!-- hg log box -->
 <div class="cheatcontent" style="margin-top:-80px">
 <div class="cheattop">
 	<div class="command">hg revert</div>
 </div>
-<p class="cheattext">revert changed files back to committed version  </p>
+<p class="cheattext">reverte os arquivos alterados de volta a como estavam no último commit</p>
 <img src="i/cheatbot.png" width="241" height="41" />
 </div>
 
@@ -554,36 +555,37 @@ isn't broken, it doesn't have enough features yet.
 <div class="codebottom"> </div>
 </div>
 
-<p>I used the command line argument <strong><code>--</code>all</strong> because I wanted
-to revert <em>all</em> files back to their original state.</p>
+<p>Aqui eu usei o argumento de linha de comando <strong><code>--</code>all</strong> porque
+eu quero reverter <em>todos</em> os arquivos para seus estados originais.</p>
 
-<p>So, when you&#8217;re working on source code with Mercurial:</p>
+<p>Então, quando você estiver trabalhando em código-fonte com o Mercurial:</p>
 
 <ol>
-  <li>Make some changes</li>
-  <li>See if they work</li>
-  <li>If they do, <strong>commit</strong> them</li>
-  <li>If they don&#8217;t, <strong>revert</strong> them</li>
+  <li>Faça algumas alterações</li>
+  <li>Veja se estão funcionando</li>
+  <li>Se estiverem, dê <strong>commit</strong> nelas</li>
+  <li>Se não estiverem, <strong>revert</strong>a-as</li>
   <li>GOTO 1</li>
 </ol>
 
-<p>(I know. Between the Windows command prompt and the GOTO statements, I am the <em>least cool programmer</em> who ever lived.)</p>
+<p>(Eu sei, eu sei.  Pelo prompt de comando do Windows e pelas declarações GOTO, eu devo ser o <em>programador menos legal</em> que já viveu.)</p>
 
 <!-- hg log box -->
 <div class="cheatcontent" style="margin-top:-10px">
 <div class="cheattop">
 	<div class="command">hg status</div>
 </div>
-<p class="cheattext">shows a list of changed files</p>
+<p class="cheattext">mostra uma lista dos arquivos alterados</p>
 <img src="i/cheatbot.png" width="241" height="41" />
 </div>
 
-<p>As time goes on, you may get confused about where you are and what
-changes you&#8217;ve made since the last commit. Mercurial keeps
-track of all that for you. All you have to do is type <strong>hg status</strong> and
-Mercurial will give you a list of files that have changed.</p>
+<p>Conforme o tempo passa, você pode ficar confuso sobre onde está e
+quais alterações você já fez desde o último commit.  O Mercurial mantém
+um registro de tudo isso para você.  Tudo que você tem a fazer é digitar
+<strong>hg status</strong> e o Mercurial vai lhe mostrar uma lista dos
+arquivos que foram alterados.</p>
 
-<p>Suppose I create a file, edit a file, and delete a file.</p>
+<p>Suponha que eu crie um arquivo, edite um arquivo e delete um arquivo.</p>
 
 <div class="codesnippet">
 <div class="codetop"> </div>
@@ -603,25 +605,25 @@ M a.txt
 <div class="codebottom"> </div>
 </div>
 
-<p><strong>hg status</strong> lists any files that have changed with a little letter at
-the beginning of the line telling you what&#8217;s up. &#8220;M&#8221; means &#8220;Modified&#8221;&#8212;the file has been changed. &#8220;!&#8221; means missing&#8212;the file is supposed to be there, but it disappeared.
-&#8220;?&#8221; means unknown&#8212;Mercurial doesn&#8217;t know anything about this file. Yet.</p>
+<p>O <strong>hg status</strong> lista quaisquer arquivos que tenham sido alterados
+junto com uma letra no começo da linha que lhe diz o que aconteceu.  Um &#8220;M&#8221; é de &#8220;Modificado&#8221;&#8212;o arquivo sofreu alteração.  Um &#8220;!&#8221; significa ausente&#8212;o arquivo deveria estar aqui mas não está mais.
+E um &#8220;?&#8221; quer dizer desconhecido&#8212;o Mercurial não sabe nada sobre este arquivo.  Ainda.</p>
 
-<p>Let&#8217;s deal with these changes one at a time. That modified file, <strong>a.txt</strong>.
-What&#8217;s modified about it? You may have forgotten what you changed! Heck, I can
-barely even remember what I ate for breakfast most days. Which is especially worrisome
-because it&#8217;s ALWAYS CHEERIOS. Anyway, a.txt has changed. What changed?</p>
+<p>Vamos abordar estas alterações uma de cada vez.  Aquele arquivo modificado, o <strong>a.txt</strong>.
+O que foi alterado nele?  Você pode ter esquecido o que você mudou!  Pois então, eu malmente me lembro
+do que comi no café da manhã quase todo dia.  O que é especialmente preocupante porque é SEMPRE CEREAL.
+Em todo caso, o a.txt mudou.  Mas o que mudou?</p>
 
 
-<p>There&#8217;s a command for that: <strong>hg diff</strong> tells you exactly what&#8217;s changed 
-with a file since the last commit.</p>
+<p>Há um comando pra isso: o <strong>hg diff</strong> lhe diz exatamente o que foi alterado no arquivo
+desde o último commit.</p>
 
 
 <div class="cheatcontent" style="margin-top:-50px">
 <div class="cheattop">
 	<div class="command">hg diff</div>
 </div>
-<p class="cheattext">shows what changed in a file  </p>
+<p class="cheattext">mostra o que foi alterado em um arquivo</p>
 <img src="i/cheatbot.png" width="241" height="41" />
 </div>
 
@@ -641,10 +643,10 @@ diff -r 55490459b740 a.txt
 <div class="codebottom"> </div>
 </div>
 
-<p>This format is a little bit cryptic, but the interesting part
-is that you can see some lines that begin with a minus, 
-which were removed, and lines that begin with a plus, which
-were added, so you can see here that &#8220;Normal people&#8221; was edited to be &#8220;Civilians&#8221;.
+<p>Este formato é um pouco estranho, mas a parte interessante é que
+você pode ver que algumas linhas começam com um sinal de menos, que
+foram removidas, e linhas que começam com um sinal de mais, que foram
+adicionadas.  Neste caso você pode ver que o trecho que era &#8220;Normal people&#8221; foi alterado para ser agora &#8220;Civilians&#8221;.
 </p>
 
 <!-- hg log box -->
@@ -652,16 +654,16 @@ were added, so you can see here that &#8220;Normal people&#8221; was edited to b
 <div class="cheattop">
 	<div class="command">hg remove</div>
 </div>
-<p class="cheattext">schedules files to be removed from 
-    the repository. They won&#8217;t actually
-    be removed until you commit.  </p>
+<p class="cheattext">marca arquivos para serem removidos do repositório.
+	Eles não serão efetivamente removidos até que você dê commit.</p>
 <img src="i/cheatbot.png" width="241" height="41" />
 </div>
 
 <p>
-Now. That missing file, favicon.ico. As earlier, if you didn&#8217;t mean to 
-delete it, you can <strong>hg revert</strong>, but let&#8217;s assume you really did mean
-to remove it. Whenever you remove (or add) a file, you have to tell Mercurial:
+Agora o arquivo ausente, favicon.ico.  Como antes, se você não queria mesmo
+removê-lo, você pode trazê-lo de volta com <strong>hg revert</strong>, mas 
+digamos agora que você realmente queira excluí-lo.  Sempre que você remover
+(ou adicionar) um arquivo, você precisa informar o Mercurial:
 </p>
 
 <div class="codesnippet">
@@ -677,9 +679,9 @@ R favicon.ico
 <div class="codebottom"> </div>
 </div>
 
-<p>The &#8220;R&#8221; means &#8220;Removed&#8221; so the next time we commit in Mercurial this file will be
-removed. (The <em>history</em> of the file will remain in the repository, so of course
-we can always get it back). Finally, we need to add that new file, <strong>b.txt</strong>:</p>
+<p>O &#8220;R&#8221; significa &#8220;Removido&#8221;, então na próxima vez que você der commit no Mercurial,
+este arquivo será removido.  (O <em>histórico</em> do arquivo vai permanecer no repositório então, claro, você
+sempre pode voltar atrás).  Finalmente, nós queremos adicionar aquele outro arquivo, o <strong>b.txt</strong>:</p>
 
 <div class="codesnippet">
 <div class="codetop"> </div>
@@ -695,11 +697,11 @@ R favicon.ico
 <div class="codebottom"> </div>
 </div>
 
-<p>&#8220;A&#8221; means &#8220;Added.&#8221; Did you notice I was getting lazy about typing out
-<strong>hg status</strong> all the time? Mercurial only needs enough letters
-to disambiguate, and there are no other commands that start with <strong>st</strong>.</p>
+<p>O &#8220;A&#8221; significa &#8220;Adicionado&#8221;.  Você percebeu que eu fiquei com preguiça de digitar
+<strong>hg status</strong> o tempo todo?  Para digitar os comandos do Mercurial você só precisa das letras
+suficientes para que eles não sejam confundidos.  Neste caso, não existem outros comandos que começam com <strong>st</strong>.</p>
 
-<p>Having solved all the little ?&#8217;s and !&#8217;s, I can go ahead and check in my changes:</p>
+<p>Tendo resolvido todos os ?&#8217;s e os !&#8217;s, eu posso seguir em frente com minhas alterações:</p>
 
 <div class="codesnippet">
 <div class="codetop"> </div>
@@ -731,26 +733,26 @@ summary:     Initial version of the CountDown code</pre>
 <div class="codebottom"> </div>
 </div>
 
-<p>One more thing about the output from
-<strong>hg log</strong>: the <em>changeset</em> line shows us a number
-to every commit&#8230;. actually two numbers: a handy, short one, like &#8220;0&#8221; for
-your initial revision, etc., and a long, goofy hexadecimal one which you can
-ignore for now.</p>
+<p>Mais uma coisa sobre a saída do 
+<strong>hg log</strong>: a linha <em>changeset</em> nos mostra um número
+para cada commit&#8230; na verdade dois números: um mais prático e curto como &#8220;0&#8221;
+para sua revisão inicial, etc. e um longo, mais estranho em formato hexadecimal
+e que você pode ignorar por agora.</p>
 
-<p>Remember that Mercurial keeps, in the repository, enough information
-to reconstruct any old version of any file.</p>
+<p>Lembre-se que o Mercurial mantém, no repositório, informação suficiente
+para reconstruir qualquer versão anterior de qualquer arquivo.</p>
 
 <!-- hg log box -->
 <div class="cheatcontent" style="margin-top:-10px">
 <div class="cheattop">
 	<div class="command">hg cat</div>
 </div>
-<p class="cheattext">shows any revision of any file.</p>
+<p class="cheattext">mostra qualquer revisão de qualquer arquivo</p>
 <img src="i/cheatbot.png" width="241" height="41" />
 </div>
 
-<p>First of all, the simple command <strong>hg cat</strong> can be used to print any old version 
-of a file. For example, to see what a.txt looks like now:</p>
+<p>Antes de mais nada, o simples comand <strong>hg cat</strong> pode ser usado para exibir qualquer
+versão antiga de um arquivo.  Por exemplo, para ver como o a.txt se parece agora:</p>
 
 
 <div class="codesnippet">
@@ -764,9 +766,9 @@ isn't broken, it doesn't have enough features yet.
 <div class="codebottom"> </div>
 </div>
 
-<p>To see what it looked like in the past, I can just pick a changeset number
-from the log. Then I use the <strong>cat</strong> command
-with the <strong>-r</strong> (&#8220;revision&#8221;) argument:</p>
+<p>Para ver como ele era no passado, eu posso pegar o número de algum changeset
+do log.  E então usar este número no comando <strong>cat</strong> com o argumento
+<strong>-r</strong> (&#8220;revisão&#8221;):</p>
 
 <div class="codesnippet">
 <div class="codetop"> </div>
@@ -779,10 +781,11 @@ ain't broke, it doesn't have enough features yet.
 <div class="codebottom"> </div>
 </div>
 
-<p>If the file is long and complicated, and only a little bit of it changed,
-I can use the <strong>hg diff</strong> command with an <strong>-r</strong> 
-argument to print the difference between any two revisions. For example, to see 
-what changed between revisions 0 and 1:</p>
+<p>Se o conteúdo do arquivo for muito grande e complicado e só uma pequena
+parte dele tiver mudado, eu posso usar o comando <strong>hg diff</strong>
+com um argumento <strong>-r</strong> para exibir a diferença entre quaisquer
+duas revisões.  Por exemplo, para ver o que foi modificado entre as revisões
+0 e 1:</p>
 
 <div class="codesnippet">
 <div class="codetop"> </div>
@@ -800,25 +803,25 @@ diff -r da5f372c3901 -r a9497f468dc3 a.txt
 <div class="codebottom"> </div>
 </div>
 
-<p>Finally, if you haven&#8217;t collapsed yet from exhaustion, before
-I finish this tutorial, I just want to show you <em>one more tiny thing:</em> you can use 
-the <strong>hg update</strong> command to go backwards or forwards in time
-to any revision you want. Well, you can&#8217;t really go into the
-future <em>per se</em>, although that would be super-cool. If you only had four revisions
-you would just <strong>hg update -r 103994</strong> and get some really
-cool anti-gravity sci-fi futuristic version of your source code.
-But of course, that is not possible.</p>
+<p>E finalmente, se você não estiver cansado, antes de terminar este tutorial
+eu quero mostrar a você <em>só mais uma coisa:</em> você pode usar o comando
+<strong>hg update</strong> para voltar ou avançar no tempo para qualquer
+revisão que você queira.  Bem, você não pode viajar para o futuro <em>de fato</em>,
+apesar de que isso seria super-legal.  Imagine como seria se você tivesse apenas
+quatro revisões e ao digitar <strong>hg update -r 103994</strong> obter alguma
+versão de ficção científica futurística e muito à frente do tempo de seu código-fonte!
+Mas claro que isso não é possível.</p>
 
 <!-- hg log box -->
 <div class="cheatcontent" style="margin-top:-120px">
 <div class="cheattop">
 	<div class="command">hg update</div>
 </div>
-<p class="cheattext">update the working directory to a particular revision </p>
+<p class="cheattext">atualiza o diretório de trabalho para uma dada revisão</p>
 <img src="i/cheatbot.png" width="241" height="41" />
 </div>
 
-<p>What is possible is going <em>back</em> to any version. Watch:</p>
+<p>O que é possível é <em>voltar</em> em qualquer versão.  Veja:</p>
 
 <div class="codesnippet">
 <div class="codetop"> </div>
@@ -850,27 +853,27 @@ isn't broken, it doesn't have enough features yet.
 <div class="codebottom"> </div>
 </div>
 
-<p><strong>hg update</strong> is actually modifying every file in the directory that changed
-to go backwards and forwards through time. If a file was added or removed, it adds or removes it.
-Without any arguments, <strong>hg update</strong> goes to the latest version.</p>
+<p>O <strong>hg update</strong> na verdade está modificando cada arquivo em cada diretório
+que sofreu alterações para à frente e atrás ao longo do tempo.  Se um arquivo foi adicionado ou removido, ele o adiciona ou o remove.
+Sem nenhum argumento, o <strong>hg update</strong> vai para a última versão.</p>
 
-<h2>Test yourself</h2>
+<h2>Teste você mesmo</h2>
 
-<p>OK! That&#8217;s it for tutorial one. Here&#8217;s all the things you should know how to do now:</p>
+<p>OK!  Isso é tudo para este tutorial um.  Aqui estão algumas coisas que você deve saber fazer agora:</p>
 
 <ol>
-  <li>Create a repository</li>
-  <li>Add and remove files in a repository</li>
-  <li>After making changes, see what uncommitted changes you made, then</li>
-  <li>&#8230; commit if you like them,</li>
-  <li>&#8230; or revert if you don&#8217;t.</li>
-  <li>See old versions of files, or even move your directory backwards and forwards in time</li>
+  <li>Criar um repositório</li>
+  <li>Adicionar ou remover arquivos em um repositório</li>
+  <li>Depois de fazer alterações, ver que alterações você fez e ainda não estão submetidas, e então dar</li>
+  <li>&#8230; commit, se gostou delas, ou</li>
+  <li>&#8230; revert, se não gostou.</li>
+  <li>Ver as versões antigas dos arquivos, ou mesmo mover seu diretório à frente e atrás no tempo</li>
 </ol>
 
 <div class="footer">
  <div class="footernav" id="home" align="center"><a href="index.html"><span class="angleQuote">&#171;</span> Home</a></div>
- <div class="footernav" id="comingup">Next, we&#8217;ll see how to get your whole team working with Mercurial.</div>
-<div class="footernav" id="next" align="center"><a href="02.html">Next <span class="angleQuote">&#187;</span></a></div>
+ <div class="footernav" id="comingup">A seguir, vamos ver como fazer toda sua equipe trabalhar juntos com o Mercurial.</div>
+<div class="footernav" id="next" align="center"><a href="02.html">Próximo <span class="angleQuote">&#187;</span></a></div>
 
  
  
