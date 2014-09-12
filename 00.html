@@ -140,11 +140,11 @@ Quando os programadores de minha empresa decidiram migrar do Subversion para o M
 
 <p>Então você pode submeter seu código para seu repositório particular e ter assim todos os benefícios do controle de versão sempre que quiser.  E sempre que você alcançar algum ponto lógico quando seu código esteja um pouco melhor, você pode dar commit e submetê-lo.</p>
 
-<p>Quando seu código estiver bem consolidado e você tiver confiança para deixar com que outras pessoas o utilizem também, então você dá <em>push</em> nele e o &#8220;empurra&#8221; para um repositório central a partir do qual todos os demais podem &#8220;puxar&#8221; quando for o caso.</p>
+<p>Quando seu código estiver bem consolidado e você tiver confiança para deixar com que outras pessoas o utilizem também, então você dá <em>push</em> nele e o &#8220;empurra&#8221;, transferindo-o para um repositório central a partir do qual todos os demais podem &#8220;puxar&#8221; quando for o caso.</p>
 
 <p><em>O Mercurial separa a ação de submeter novo código da ação de compartilhá-lo com todos os demais.</em></p>
 
-<p>E isso significa que você pode dar commit em seu código (<strong>hg com</strong>) sem que ninguém mais receba as alterações que você está submetendo.  Quando tiver um conjunto de alterações que você goste, que estejam estáveis e tudo o mais, você as empurra (<strong>hg push</strong>) para o repositório principal.</p>
+<p>E isso significa que você pode dar commit em seu código (<strong>hg com</strong>) sem que ninguém mais receba as alterações que você está submetendo.  Quando tiver um conjunto de alterações que você goste, que estejam estáveis e tudo o mais, você as transfere (<strong>hg push</strong>) para o repositório principal.</p>
 
 <h2>Mais uma grande diferença conceitual</h2>
 
@@ -169,7 +169,7 @@ Quando os programadores de minha empresa decidiram migrar do Subversion para o M
 
 <p>Por exemplo, se eu tiver alterado uma função um pouquinho e depois mover o código para algum outro lugar, o Subversion não vai de fato lembrar desses passos, de sorte que na hora de fazer o merge vai parecer como se uma nova função simplesmente tivesse sido criada.  Ao passo que o Mercurial vai relembrar essas alterações separadamente: função alterada, função movida, o que significa que você <em>também</em> pode alterar a função mais um pouco.  Assim é muito mais provável que o Mercurial consiga mesclar nossas alterações com sucesso.</p>
 
-<p>Uma vez que o Mercurial pensa em tudo em termos de changesets, você pode fazer uma coisa interessante com estes changesets.  Você pode dar push nelas para um amigo na equipe experimentá-las, ao invés de empurrá-las para o repositório central e disponibilizá-las para todo mundo.</p>
+<p>Uma vez que o Mercurial pensa em tudo em termos de changesets, você pode fazer uma coisa interessante com estes changesets.  Você pode dar push nelas para um amigo na equipe experimentá-las, ao invés de transferí-las para o repositório central e disponibilizá-las para todo mundo.</p>
 
 <p>Se isso parece um pouco confuso, não se preocupe, com o tempo ao longo deste tutorial vai fazer sentido perfeitamente.  Por hora, o mais importante a saber é que como o Mercurial pensa em termos de &#8220;changesets&#8221; ao invés de &#8220;revisões&#8221; <em>ele pode mesclar código bem melhor que o Subversion</em>.</p>
 
