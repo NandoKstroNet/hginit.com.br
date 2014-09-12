@@ -1,8 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>HgInit: Setting up for a Team</title>
+<meta charset="UTF-8" />
+<title>HgInit: Configurando para uma equipe</title>
 
 <script src="c/jquery-1.4.1.js"></script>
 <script src="c/basic.js"></script>
@@ -68,17 +68,18 @@ pageTracker._trackPageview();
         <img src="i/logo.png" border="0" alt="HgInit Home" />
       </a>
   
-  One of the benefits of using Mercurial is working
-  with a team on the same code. Mercurial lets you
-  each work independently, and merges your changes together.
+  Uma das vantagens de se usar o Mercurial é trabalhar
+  com uma equipe no mesmo código.  O Mercurial permite
+  que cada um trabalhe independentemente e consolida suas
+  alterações juntas.
 
   </div>
 </div>
 <div class="main">
-  <h1>Setting up for a Team</h1>
+  <h1>Configurando para uma equipe</h1>
   <div class="content">
   
-<p>The most common way to collaborate with Mercurial is to set up a central repository, in addition to the private repositories that we each have on our own computers. We can use the central repository sort of like a swap meet, where we get together to trade the changes we&#8217;ve been making.</p>
+<p>A forma mais comum de se colaborar usando Mercurial é configurando um servidor central, além dos repositórios particulares que cada um tem em seus computadores.  Nós podems usar o repositório central como um espaço de trocas, onde nos reunimos para negociar sobre as alterações que estamos fazendo.</p>
 
 
 <div><img src="i/02-repo.png" /></div>
@@ -87,13 +88,13 @@ pageTracker._trackPageview();
 <div class="cheattop">
 	<div class="command">hg serve</div>
 </div>
-<p class="cheattext">runs a web server to make the current repository accessible over the Internet </p>
+<p class="cheattext">executa um servidor web para tornar o repositório atual disponível na Internet</p>
 <img src="i/cheatbot.png" width="241" height="41" />
 </div>
 
 
 
-<p>The quick-and-dirty way to make a central repository is to use Mercurial&#8217;s built in web server&#8212;all you have to do is make a repository with <strong>hg init</strong> and then serve it on the web with <strong>hg serve</strong>. By default it will be served on port 8000.</p>
+<p>O jeito rápido e rasteiro de se criar um repositório central é usar o servidor web embutido no Mercurial&#8212;tudo o que você precisa é criar um repositório com <strong>hg init</strong> e então serví-lo na rede com <strong>hg serve</strong>.  Por padrão ele será servido na porta 8000.</p>
 
 <div class="codesnippet">
 <div class="codetop"> </div>
@@ -110,7 +111,7 @@ C:\CentralRepo&gt; <strong>hg serve</strong>
 </div>
 
 
-<p>Since this computer is named <strong>joel.example.com</strong> I can just go to <strong>http://joel.example.com:8000/</strong> with a web browser and see that the server is up and running, even though the repository there is completely empty.</p>
+<p>Como este meu computador é chamado <strong>joel.example.com</strong>, eu posso só acessar <strong>http://joel.example.com:8000</strong> com um navegador web e confirmar que o servidor está ativo e sendo executado, ainda que o repositório esteja completamente vazio.</p>
 
 
 <div><img src="i/02-web.png" /></div>
@@ -119,29 +120,29 @@ C:\CentralRepo&gt; <strong>hg serve</strong>
 <div class="cheattop">
 	<div class="command">hg clone</div>
 </div>
-<p class="cheattext">make a complete copy of an entire repository </p>
+<p class="cheattext">faz uma cópia completa de um repositório inteiro</p>
 <img src="i/cheatbot.png" width="241" height="41" />
 </div>
 
 
 
-<p>With the central web server running, I can <em>clone</em> this repository <em>from</em> the server <em>onto</em> my own computer for my own use. This repository is empty right now, so I&#8217;ll just get another empty repository when I clone it.</p>
+<p>Com o servidor web central sendo executado, eu posso <em>clonar</em> este repositório <em>do</em> servidor <em>em</em> algum lugar no meu próprio computador para meu uso.  Neste caso, este repositório está vazio agora, então eu obterei apenas um outro repositório vazio quando eu cloná-lo.</p>
 
 <div class="codesnippetjoel">
 <div class="codetop"> </div>
 <pre class="joel">
-C:\Users\joel&gt; <strong>hg clone http://joel.example.com:8000/ recipes</strong>
+C:\Users\joel&gt; <strong>hg clone http://joel.example.com:8000/ receitas</strong>
 no changes found
 updating to branch default
 0 files updated, 0 files merged, 0 files removed, 0 files unresolved
 
-C:\Users\joel&gt; <strong>cd recipes</strong>
+C:\Users\joel&gt; <strong>cd receitas</strong>
 
-C:\Users\joel\recipes&gt; <strong>dir</strong>
+C:\Users\joel\receitas&gt; <strong>dir</strong>
  Volume in drive C has no label.
  Volume Serial Number is 84BD-9C2C
 
- Directory of C:\Users\joel\recipes
+ Directory of C:\Users\joel\receitas
 
 02/08/2010  02:46 PM    &lt;DIR&gt;          .
 02/08/2010  02:46 PM    &lt;DIR&gt;          ..
@@ -152,23 +153,23 @@ C:\Users\joel\recipes&gt; <strong>dir</strong>
 <div class="codebottom"> </div>
 </div>
 
-<p>Now I&#8217;ll create a file called <strong>guac</strong> with my famous guacamole recipe.</p>
+<p>Agora eu vou criar um arquivo chamado <strong>guac</strong> contendo a minha famosa receita de guacamole.</p>
 
 <div class="edit1">
                 <div class="edittopbefore" >
                 guac </div>
                 <div class="editcontent">
-* 2 ripe avocados<br>
-* 1/2 red onion, minced (about 1/2 cup)<br>
-* 1-2 serrano chiles, stems and seeds removed, minced<br>
-* 2 tablespoons cilantro leaves, finely chopped<br>
-* 1 tablespoon of fresh lime or lemon juice<br>
-* 1/2 teaspoon coarse salt<br>
-* A dash of freshly grated black pepper<br>
-* 1/2 ripe tomato, seeds and pulp removed, chopped<br><br>
+* 2 abacates maduros<br>
+* 1/2 cebola roxa picada (cerca de 1/2 xícara)<br>
+* 1-2 pimentas dedo-de-moça, sem talo e sem sementes, picadas<br>
+* 2 colheres de sopa de coentro picado bem fininho<br>
+* 1 colher de sopa de suco de limão<br>
+* 1/2 colher de chá de sal grosso<br>
+* Uma pitada de pimenta-do-reino moída na hora<br>
+* 1/2 tomate maduro, sem pele e sem sementes, picado<br><br>
 
-Crunch all ingredients together.<br>
-Serve with tortilla chips.<br>
+Misture bem todos os ingredientes juntos.<br>
+Sirva com salgadinhos tipo nachos.<br>
                 </div>
                 <img src="i/edit-bot.gif" width="387" height="76" />
     </div>
@@ -178,38 +179,38 @@ Serve with tortilla chips.<br>
 
 
 
-<p>I&#8217;ll add this file, and commit it as the first official version:</p>
+<p>Vou adicionar este arquivo e dar commit nesta primeira versão oficial:</p>
 
 <div class="codesnippetjoel">
 <div class="codetop"> </div>
 <pre class="joel">
-C:\Users\joel\recipes&gt; <strong>hg add</strong>
+C:\Users\joel\receitas&gt; <strong>hg add</strong>
 adding guac
 
-C:\Users\joel\recipes&gt; <strong>hg commit</strong>
+C:\Users\joel\receitas&gt; <strong>hg commit</strong>
 </pre>
 <div class="codebottom"> </div>
 </div>
 
-<p>I&#8217;ll provide a commit comment:</p>
+<p>Vou escrever um comentário para o commit:</p>
 
 
 <img src="i/02-commit0.png">
 
 
-<p>I&#8217;m just going to quickly edit this file and make one small change, so
-that we have a little bit of history in the repository.</p>
+<p>Vou editar brevemente este arquivo e fazer uma pequena alteração, só para
+que ele tenha algum histórico no repositório.</p>
 
 <div class="edit1">
                 <div class="edittopbefore">
                 guac </div>
                 <div class="editcontent">
 &#8230;<br>
-* A dash of freshly grated black pepper<br>
-* 1/2 ripe tomato, seeds and pulp removed, chopped<br><br>
+* Uma pitada de pimenta-do-reino moída na hora<br>
+* 1/2 tomate maduro, sem pele e sem sementes, picado<br><br>
 
-Crunch all ingredients together.<br>
-Serve with tortilla chips.<br>
+Misture bem todos os ingredientes juntos.<br>
+Sirva com salgadinhos tipo nachos.<br>
                 </div>
                 <img src="i/edit-bot.gif" width="387" height="76" />
     </div>
@@ -223,11 +224,11 @@ Serve with tortilla chips.<br>
 
   <div class="editcontent">
 &#8230;<br>
-* A dash of freshly grated black pepper<br>
-* 1/2 ripe tomato, seeds and pulp removed, chopped<br><br>
+* Uma pitada de pimenta-do-reino moída na hora<br>
+* 1/2 tomate maduro, sem pele e sem sementes, picado<br><br>
 
-<strong>Smoosh</strong> all ingredients together.<br>
-Serve with tortilla chips.<br>
+<strong>Amasse</strong> todos os ingredientes juntos.<br>
+Sirva com salgadinhos tipo nachos.<br>
    </div>
   <img src="i/edit-bot.gif" width="387" height="76" />
  </div>
@@ -235,35 +236,35 @@ Serve with tortilla chips.<br>
  <div style="clear: both;">&nbsp;</div>
  
  
-<p>And now to commit that change:</p>
+<p>Agora vamos dar commit nesta alteração:</p>
 
 <div class="codesnippetjoel">
 <div class="codetop"> </div>
 <pre class="joel">
 
-C:\Users\joel\recipes&gt; <strong>hg status</strong>
+C:\Users\joel\receitas&gt; <strong>hg status</strong>
 M guac
 
-C:\Users\joel\recipes&gt; <strong>hg diff guac</strong>
+C:\Users\joel\receitas&gt; <strong>hg diff guac</strong>
 diff -r c1fb7e7fbe50 guac
 --- a/guac      Mon Feb 08 14:50:08 2010 -0500
 +++ b/guac      Mon Feb 08 14:51:08 2010 -0500
 @@ -7,5 +7,5 @@
- * A dash of freshly grated black pepper
- * 1/2 ripe tomato, seeds and pulp removed, chopped
+ * Uma pitada de pimenta-do-reino moída na hora
+ * 1/2 tomate maduro, sem pele e sem sementes, picado
 
--Crunch all ingredients together.
-+Smoosh all ingredients together.
- Serve with tortilla chips.
+-Misture bem todos os ingredientes juntos.
++Amasse todos os ingredientes juntos.
+ Sirva com salgadinhos tipo nachos.
 
-C:\Users\joel\recipes&gt; <strong>hg com -m "Change crunch to smoosh"</strong>
+C:\Users\joel\receitas&gt; <strong>hg com -m "Troca misturar bem por amassar"</strong>
 
-C:\Users\joel\recipes&gt; <strong>hg log</strong>
+C:\Users\joel\receitas&gt; <strong>hg log</strong>
 changeset:   1:a52881ed530d
 tag:         tip
 user:        Joel Spolsky &lt;joel@joelonsoftware.com&gt;
 date:        Mon Feb 08 14:51:18 2010 -0500
-summary:     Change crunch to smoosh
+summary:     Troca misturar bem por amassar
 
 changeset:   0:c1fb7e7fbe50
 user:        Joel Spolsky &lt;joel@joelonsoftware.com&gt;
@@ -273,9 +274,9 @@ summary:     Initial version of guacamole recipe
 <div class="codebottom"> </div>
 </div>
 
-<p>Notice that when I committed that time, I used the <strong>-m</strong> argument, which I haven&#8217;t done before. That&#8217;s just a way to provide the commit message on the command line, without using an editor.</p>
+<p>Perceba que quando eu dei commit desta vez, eu usei o argumento <strong>-m</strong> que eu não tinha utilizado antes.  Isto é só uma forma de prover uma mensagem para o commit na linha de comando, sem ter que usar o editor de texto.</p>
 
-<p>OK, where are we? So far, I&#8217;ve got a central repository, and my clone of it. I&#8217;ve made two changes and committed them, but those changes are only in my clone&#8212;they&#8217;re not in the central repository yet. So the world looks like this:</p>
+<p>OK, onde estávamos?  Até agora eu tenho repositório central e meu clone dele.  Já fiz duas alterações e dei commit nelas, mas tais alterações estão somente em meu clone&#8212;elas não estão no repositório central ainda.  Então o cenário se parece com isto:</p>
 
 
    <div><img src="i/02-repo-2.png" /></div>
@@ -286,17 +287,17 @@ summary:     Initial version of guacamole recipe
 <div class="cheattop">
 	<div class="command">hg push</div>
 </div>
-<p class="cheattext"> push new changes from this repository into another  </p>
+<p class="cheattext">transfere novas alterações de um repositório para outro</p>
 <img src="i/cheatbot.png" width="241" height="41" />
 </div>
 
 
-<p>Now I&#8217;m going to use the <strong>hg push</strong> command, which will push my changes from my repository into the central repository:</p>
+<p>Agora eu vou utilizar o comando <strong>hg push</strong>, que vai transferir minhas alterações do meu repositório para o repositório central:</p>
 
 <div class="codesnippetjoel">
 <div class="codetop"> </div>
 <pre class="joel">
-C:\Users\joel\recipes&gt; <strong>hg push</strong>
+C:\Users\joel\receitas&gt; <strong>hg push</strong>
 pushing to http://joel.example.com:8000/
 searching for changes
 ssl required
@@ -304,7 +305,7 @@ ssl required
 <div class="codebottom"> </div>
 </div>
 
-<p>Oh great. It figures that wouldn&#8217;t work. I neglected to think about the security implications of just running a random web server and allowing anybody in the world to push their stupid changes into it. Bear with me for a moment; I&#8217;m going to configure that server to allow anybody in the world to do anything they want to it. This can be done by editing the file .hg\hgrc on the server:</p>
+<p>Ah, que ótimo.  Ele percebe que não vai funcionar.  Eu esqueci de pensar sobre as implicações de segurança de apenas executar um servidor web e permitir que qualquer pessoa no mundo possa transferir suas alterações estúpidas nele.  Tenha paciência comigo por um instante; vou configurar este servidor para que ele permita que qualquer pessoa no mundo faça qualquer coisa que quiser com ele.  Isto pode ser feito editando-se o arquivo .hg\hgrc no servidor:</p>
 <div class="edit1">
                 <div class="edittopbefore">
                 .hg\hgrc </div>
@@ -318,9 +319,9 @@ ssl required
 
  <div style="clear: both;">&nbsp;</div>
 
-<p>Needless to say, this is rather unsafe, but if you&#8217;re on a nice protected LAN at work and there&#8217;s a good firewall and you trust everybody on your LAN, this is reasonably OK. Otherwise, you&#8217;ll want to read the advanced chapters on security.</p>
+<p>Desnecessário dizer que isto é bastante inseguro, mas se você estiver em uma boa rede LAN protegida no trabalho e tiver um bom firewall e se você confia em todos os usuários na sua rede, esta configuração é até bem razoável.  Caso contrário, você vai precisar ler os capítulos avançados sobre segurança.</p>
 
-<p>OK, time to fire up the server again:</p>
+<p>OK, vamos executar o servidor novamente:</p>
 
 <div class="codesnippet">
 <div class="codetop"> </div>
@@ -331,12 +332,12 @@ C:\CentralRepo> <strong>hg serve</strong>
 </div>
 
 
-<p>And now I should be able to push into it:</p>
+<p>E agora eu devo ser capaz de transferir para ele:</p>
 
 <div class="codesnippetjoel">
 <div class="codetop"> </div>
 <pre class="joel">
-C:\Users\joel\recipes&gt; <strong>hg push</strong>
+C:\Users\joel\receitas&gt; <strong>hg push</strong>
 pushing to http://joel.example.com:8000/
 searching for changes
 adding changesets
@@ -347,24 +348,24 @@ added 2 changesets with 2 changes to 1 files
 <div class="codebottom"> </div>
 </div>
 
-<p>Yay! Now the world looks like this:</p>
+<p>Opa!  Agora o cenário é algo assim:</p>
 
 
    <img src="i/02-repo-3.png" />
 
-<p>I know what you&#8217;re thinking. You&#8217;re thinking, &#8220;Gosh, Joel, that&#8217;s strange. Why do these repositories contain <em>changes</em> as opposed to <em>files</em>? Where&#8217;s that <strong>guac</strong> file?&#8221;</p>
+<p>Eu sei o que você está pensando.  Você está pensando, &#8220;Puxa, Joel, isso é estranho!  Por que estes repositório contém <em>alterações</em> ao invés de conter <em>arquivos</em>?  Onde o arquivo <strong>guac</strong> fica, afinal?&#8221;</p>
 
-<p>Yeah, it&#8217;s weird. But that&#8217;s the way distributed version control works. Repositories just contain big stacks of changes. Imagine that a change is like one of those clear transparency sheets. When you have a bunch of transparency sheets, you stack them on each other in order, with the latest change on the top, and look down from above, and&#8212;tada!&#8212;you&#8217;re looking at the current version of the file. As you peel away transparencies from the top of the pile, you see older and older versions.</p>
+<p>Sim, é estranho.  Mas é assim que o controle de versão distribuído funciona.  Os repositórios apenas contém grandes conjuntos de alterações.  Imagine que uma alteração é como se fosse uma folha de transparência.  Quando você tem várias delas e você as junta umas sobre as outras em ordem, com a última alteração no topo e olha através delas, &#8212;tcharam!&#8212;eis que você vê a versão atual do arquivo.  E conforme você retira as transparências do topo da pilha, então você vê como era o arquivo nas versões mais antigas.</p>
 
-<p>We can use our web browser to peek into the central repository now:</p>
+<p>Podemos usar nosso navegador web para dar uma olhada no repositório central agora:</p>
 
 
   <img src="i/02-web-2.png" />
 
 
-<p>Exactly what you would expect.</p>
+<p>Exatamente o que você poderia esperar.</p>
 
-<p>Now I want Rose to help me work on the recipe. Rose is on the test team. Everyone agrees that she reminds them of those middle-aged ladies you see in Vegas, sitting there slack-jawed for hours, shoveling quarter after quarter into the slot machines, only she&#8217;s testing software. You can throw her a new version of your code and she&#8217;ll test it on 23 different Linux distros, one after the other, expressionless, unmoving, pausing only to tell you that there&#8217;s a dot missing on one of the lower-case I&#8217;s in the Turkish version on Ubuntu Linux. Rose is a great tester but I swear sometimes she acts like a zombie.</p>
+<p>Agora eu quero que a Rose me ajude com esta receita.  A Rose é da equipe de testes.  Ela parece aquelas senhores de meia idade que costuma jogar no bingo, talvez passando horas sentada na frente de um caça-níquel, e apenas ela está testando o software.  Você pode lhe fornecer uma nova versão de seu código-fonte que ela é capaz de seguir um roteiro para testá-lo em 23 diferentes distribuições Linux, meticulosamente uma depois da outra, sem expressão, sem envolvimento, pausando só de vez em quando para comunicar que um texto não aparece corretamente quando o sistema operacional está no idioma turco, ou coisa do tipo.  Na verdade, a Rose é uma excelente testadora, mas eu acho que às vezes ela age mais como um zumbi.</p>
 
 
 
@@ -373,7 +374,7 @@ added 2 changesets with 2 changes to 1 files
 <div class="codesnippetrose">
 <div class="codetop"> </div>
 <pre class="rose">
-C:\Users\rose&gt; <strong>hg clone http://joel.example.com:8000/ recipes</strong>
+C:\Users\rose&gt; <strong>hg clone http://joel.example.com:8000/ receitas</strong>
 requesting all changes
 adding changesets
 adding manifests
@@ -387,18 +388,18 @@ updating to branch default
 
 
 
-<p>Rose used the <strong>hg clone</strong> command to get her own, complete copy of the repository. <strong>hg clone</strong> takes two arguments: the URL of the repository and the name of the directory where you want it cloned. She made her own <strong>recipes</strong> folder.</p>
+<p>A Rose usou o comando <strong>hg clone</strong> para obter ela mesma uma cópia completa do repositório.  O <strong>hg clone</strong> recebe dois argumentos: a URL do repositório e o nome do diretório local aonde você quer que ele seja clonado.  E ela criou sua própria pasta <strong>receitas</strong>.</p>
 
 <div class="codesnippetrose">
 <div class="codetop"> </div>
 <pre class="rose">
-C:\Users\rose&gt; <strong>cd recipes</strong>
+C:\Users\rose&gt; <strong>cd receitas</strong>
 
-C:\Users\rose\recipes&gt; <strong>dir</strong>
+C:\Users\rose\receitas&gt; <strong>dir</strong>
  Volume in drive C has no label.
  Volume Serial Number is 84BD-9C2C
 
- Directory of C:\Users\rose\recipes
+ Directory of C:\Users\rose\receitas
 
 02/08/2010  03:23 PM    &lt;DIR&gt;          .
 02/08/2010  03:23 PM    &lt;DIR&gt;          ..
@@ -407,12 +408,12 @@ C:\Users\rose\recipes&gt; <strong>dir</strong>
                1 File(s)            394 bytes
                3 Dir(s)  41,871,872,000 bytes free
 
-C:\Users\rose\recipes&gt; <strong>hg log</strong>
+C:\Users\rose\receitas&gt; <strong>hg log</strong>
 changeset:   1:a52881ed530d
 tag:         tip
 user:        Joel Spolsky &lt;joel@joelonsoftware.com&gt;
 date:        Mon Feb 08 14:51:18 2010 -0500
-summary:     Change crunch to smoosh
+summary:     Troca misturar bem por amassar
 
 changeset:   0:c1fb7e7fbe50
 user:        Joel Spolsky &lt;joel@joelonsoftware.com&gt;
@@ -422,19 +423,19 @@ summary:     Initial version of guacamole recipe
 <div class="codebottom"> </div>
 </div>
 
-<p>Notice that when she types <strong>hg log</strong> she sees the whole history. She has actually downloaded the entire repository, with its complete history of everything that happened.</p>
+<p>Veja agora que quando ela digita <strong>hg log</strong> ela vê o histórico completo.  Ela na verdade baixou o repositório interiro, o que inclui o histórico completo de tudo que aconteceu.</p>
 
-<p>Rose is going to make a change, and check it in:</p>
+<p>A Rose está para fazer uma alteração e submetê-la:</p>
 
 <div class="edit1">
                 <div class="edittopbefore">
                 guac </div>
                 <div class="editcontent">
-* 2 ripe avocados<br>
-* 1/2 red onion, minced (about 1/2 cup)<br>
-* 1-2 serrano chiles, stems and seeds removed, minced<br>
-* 2 tablespoons cilantro leaves, finely chopped<br>
-* 1 tablespoon of fresh lime or lemon juice<br>
+* 2 abacates maduros<br>
+* 1/2 cebola roxa picada (cerca de 1/2 xícara)<br>
+* 1-2 pimentas dedo-de-moça, sem talo e sem sementes, picadas<br>
+* 2 colheres de sopa de coentro picado bem fininho<br>
+* 1 colher de sopa de suco de limão<br>
 &#8230;
                 </div>
                 <img src="i/edit-bot.gif" width="387" height="76" />
@@ -447,11 +448,11 @@ summary:     Initial version of guacamole recipe
 		guac
 	</div>
   <div class="editcontent">
-* 2 ripe avocados<br>
-* 1/2 red onion, minced (about 1/2 cup)<br>
-* 1-2 <strong>habanero</strong> chiles, stems and seeds removed, minced<br>
-* 2 tablespoons cilantro leaves, finely chopped<br>
-* 1 tablespoon of fresh lime or lemon juice<br>
+* 2 abacates maduros<br>
+* 1/2 cebola roxa picada (cerca de 1/2 xícara)<br>
+* 1-2 pimentas <strong>habanero</strong>, sem talo e sem sementes, picadas<br>
+* 2 colheres de sopa de coentro picado bem fininho<br>
+* 1 colher de sopa de suco de limão<br>
 &#8230;<br>
    </div>
   <img src="i/edit-bot.gif" width="387" height="76" />
@@ -460,37 +461,37 @@ summary:     Initial version of guacamole recipe
  <div style="clear: both;">&nbsp;</div>
 
  
-<p>Now she commits it. Notice that she can do this even if the server is not running: the commit entirely happens on her machine.</p>
+<p>E agora ela dá commit no arquivo.  Perceba que ela consegue fazer isso mesmo se o servidor não estiver rodando: o commit acontece inteiramente apenas na máquina dela.</p>
 
 <div class="codesnippetrose">
 <div class="codetop"> </div>
 <pre class="rose">
-C:\Users\rose\recipes&gt; <strong>hg diff</strong>
+C:\Users\rose\receitas&gt; <strong>hg diff</strong>
 diff -r a52881ed530d guac
 --- a/guac      Mon Feb 08 14:51:18 2010 -0500
 +++ b/guac      Mon Feb 08 15:28:57 2010 -0500
 @@ -1,6 +1,6 @@
- * 2 ripe avocados
- * 1/2 red onion, minced (about 1/2 cup)
--* 1-2 serrano chiles, stems and seeds removed, minced
-+* 1-2 habanero chiles, stems and seeds removed, minced
- * 2 tablespoons cilantro leaves, finely chopped
- * 1 tablespoon of fresh lime or lemon juice
- * 1/2 teaspoon coarse salt
+ * 2 abacates maduros
+ * 1/2 cebola roxa picada (cerca de 1/2 xícara)
+-* 1-2 pimentas dedo-de-moça, sem talo e sem sementes, picadas
++* 1-2 pimentas habanero, sem talo e sem sementes, picadas
+ * 2 colheres de sopa de coentro picado bem fininho
+ * 1 colher de sopa de suco de limão
+ * 1/2 colher de chá de sal grosso
 
-C:\Users\rose\recipes&gt; <strong>hg com -m "spicier kind of chile"</strong>
+C:\Users\rose\receitas&gt; <strong>hg com -m "pimenta mais ardida"</strong>
 
-C:\Users\rose\recipes&gt; <strong>hg log</strong>
+C:\Users\rose\receitas&gt; <strong>hg log</strong>
 changeset:   2:689026657682
 tag:         tip
 user:        Rose Hillman &lt;rose@example.com&gt;
 date:        Mon Feb 08 15:29:09 2010 -0500
-summary:     spicier kind of chile
+summary:     pimenta mais ardida
 
 changeset:   1:a52881ed530d
 user:        Joel Spolsky &lt;joel@joelonsoftware.com&gt;
 date:        Mon Feb 08 14:51:18 2010 -0500
-summary:     Change crunch to smoosh
+summary:     Troca misturar bem por amassar
 
 changeset:   0:c1fb7e7fbe50
 user:        Joel Spolsky &lt;joel@joelonsoftware.com&gt;
@@ -500,17 +501,17 @@ summary:     Initial version of guacamole recipe
 <div class="codebottom"> </div>
 </div>
 
-<p>While Rose was making her change, I can make a change at the same time.</p>
+<p>Enquanto a Rose estava fazendo estas suas alterações, eu posso alterar alterar meu arquivo ao mesmo tempo.</p>
 
 <div class="edit1">
                 <div class="edittopbefore">
                 guac </div>
                 <div class="editcontent">
 &#8230;<br>
-* 1/2 ripe tomato, seeds and pulp removed, chopped<br><br>
+* 1/2 tomate maduro, sem pele e sem sementes, picado<br><br>
 
-Smoosh all ingredients together.<br>
-Serve with tortilla chips.<br>
+Amasse todos os ingredientes juntos.<br>
+Sirva com salgadinhos tipo nachos.<br>
                 </div>
                 <img src="i/edit-bot.gif" width="387" height="76" />
     </div>
@@ -523,10 +524,10 @@ Serve with tortilla chips.<br>
 	</div>
   <div class="editcontent">
 &#8230;<br>
-* 1/2 ripe tomato, seeds and pulp removed, chopped<br><br>
+* 1/2 tomate maduro, sem pele e sem sementes, picado<br><br>
 
-Smoosh all ingredients together.<br>
-Serve with <strong>potato</strong> chips.
+Amasse todos os ingredientes juntos.<br>
+Sirva com <strong>batatas chips</strong>.
    </div>
   <img src="i/edit-bot.gif" width="387" height="76" />
  </div>
@@ -535,24 +536,24 @@ Serve with <strong>potato</strong> chips.
 
 
 
-<p>After I check that in, you&#8217;ll see that my log shows something different as changeset #2 than Rose&#8217;s log.</p>
+<p>Depois que eu submeter isto, você vai ver que meu log mostra algo que o changeset #2 é algo diferente do que o que aparece no log da Rose.</p>
 
 <div class="codesnippetjoel">
 <div class="codetop"> </div>
 <pre class="joel">
-C:\Users\joel\recipes&gt; <strong>hg com -m "potato chips. No one can eat just one."</strong>
+C:\Users\joel\receitas&gt; <strong>hg com -m "batatas chips. Ninguém come uma só."</strong>
 
-C:\Users\joel\recipes&gt; <strong>hg log</strong>
+C:\Users\joel\receitas&gt; <strong>hg log</strong>
 changeset:   2:4ecdb2401ab4
 tag:         tip
 user:        Joel Spolsky &lt;joel@joelonsoftware.com&gt;
 date:        Mon Feb 08 15:32:01 2010 -0500
-summary:     potato chips. No one can eat just one.
+summary:     batatas chips. Ninguém come uma só.
 
 changeset:   1:a52881ed530d
 user:        Joel Spolsky &lt;joel@joelonsoftware.com&gt;
 date:        Mon Feb 08 14:51:18 2010 -0500
-summary:     Change crunch to smoosh
+summary:     Troca misturar bem por amassar
 
 changeset:   0:c1fb7e7fbe50
 user:        Joel Spolsky &lt;joel@joelonsoftware.com&gt;
@@ -562,48 +563,48 @@ summary:     Initial version of guacamole recipe
 <div class="codebottom"> </div>
 </div>
 
-<p>Our histories are starting to diverge.</p>
+<p>Os nossos históricos estão ficando diferentes.</p>
 
 
   <img src="i/02-repo-4.png" />
 
 
-<p>Don&#8217;t worry&#8230; in a minute we&#8217;ll see how to bring these diverging changes back together into one delicious habanero-based potato chip dip.</p>
+<p>Não se preocupe&#8230; num instante vamos ver como consolidar essas alterações divergentes juntas numa única receita à base de pimenta habanero e batatas chips.</p>
 
 <div class="cheatcontent" style="margin-top:-15px">
 <div class="cheattop">
 	<div class="command">hg outgoing</div>
 </div>
-<p class="cheattext">list changes in current repository waiting to be pushed  </p>
+<p class="cheattext">lista as alterações no repositório atual que estão aguardando para serem transferidas</p>
 <img src="i/cheatbot.png" width="241" height="41" />
 </div>
 
 
-<p>Rose can continue to work, disconnected, making as many changes as she wants, and either committing them, or reverting them, in her own repository. At some point, though, she&#8217;s going to want to share all the changes she&#8217;s been committing with the outside world. She can type <strong>hg outgoing</strong> which will show a list of changes that are waiting to be sent up to the central repository. These are the changes that <strong>hg push</strong> would send, if she were to <strong>hg push</strong>.</p>
+<p>A Rose pode continuar trabalhando, desconectada, fazendo todas as alterações que ela quiser, dar commit, ou revertê-las, em seu próprio repositório.  Em algum momento, porém, ela pode querer compartilhar as alterações que ela tem feito com o restante do mundo.  Ela pode digitar <strong>hg outgoing</strong> para ter uma listagem das alterações que ainda estão aguardando para serem enviadas para o repositório central.  Estas são as alterações que o <strong>hg push</strong> vai enviar quando ela executar <strong>hg push</strong>.</p>
 
 <div class="codesnippetrose">
 <div class="codetop"> </div>
 <pre class="rose">
-C:\Users\rose\recipes&gt; <strong>hg outgoing</strong>
+C:\Users\rose\receitas&gt; <strong>hg outgoing</strong>
 comparing with http://joel.example.com:8000/
 searching for changes
 changeset:   2:689026657682
 tag:         tip
 user:        Rose Hillman &lt;rose@example.com&gt;
 date:        Mon Feb 08 15:29:09 2010 -0500
-summary:     spicier kind of chile
+summary:     pimenta mais ardida
 </pre>
 <div class="codebottom"> </div>
 </div>
 
-<p>Think of <strong>hg outgoing</strong> like this: it simply lists any changes in the current repository that aren&#8217;t in the central repository.</p>
+<p>Pense no <strong>hg outgoing</strong> simplesmente desta forma: uma lista de quaisquer alterações no seu repositório que ainda não estão no repositório central.</p>
 
-<p>OK, so Rose pushes her changes.</p>
+<p>OK, então a Rose transfere as alterações dela.</p>
 
 <div class="codesnippetrose">
 <div class="codetop"> </div>
 <pre class="rose">
-C:\Users\rose\recipes&gt; <strong>hg push</strong>
+C:\Users\rose\receitas&gt; <strong>hg push</strong>
 pushing to http://joel.example.com:8000/
 searching for changes
 adding changesets
@@ -614,27 +615,27 @@ added 1 changesets with 1 changes to 1 files
 <div class="codebottom"> </div>
 </div>
 
-<p>And the world looks like this:</p>
+<p>E o cenário geral agora se parece com isto:</p>
 
 
   <img src="i/02-repo-5.png" />
 
-<p>When I get back from my fourth latte break of the day, I&#8217;m ready to push my potato-chip change, too.</p>
+<p>Quando eu voltar da minha pausa para o cafezinho, eu vou estar pronto para transferir a minha alteração da batata chip também.</p>
 
 <div class="codesnippetjoel">
 <div class="codetop"> </div>
 <pre class="joel">
-C:\Users\joel\recipes&gt; <strong>hg outgoing</strong>
+C:\Users\joel\receitas&gt; <strong>hg outgoing</strong>
 comparing with http://joel.example.com:8000/
 searching for changes
 changeset:   2:4ecdb2401ab4
 tag:         tip
 user:        Joel Spolsky &lt;joel@joelonsoftware.com&gt;
 date:        Mon Feb 08 15:32:01 2010 -0500
-summary:     potato chips. No one can eat just one.
+summary:     batatas chips. Ninguém come uma só.
 
 
-C:\Users\joel\recipes&gt; <strong>hg push</strong>
+C:\Users\joel\receitas&gt; <strong>hg push</strong>
 pushing to http://joel.example.com:8000/
 searching for changes
 abort: push creates new remote heads!
@@ -643,18 +644,18 @@ abort: push creates new remote heads!
 <div class="codebottom"> </div>
 </div>
 
-<p>Ahhh!! Failure! By the way&#8230; that message you see there? The one that says <strong>use push -f to force?</strong> That&#8217;s <em>terrible</em> advice. Never, ever, EVER use <strong>push -f</strong> to force. You will regret it. Trust me for now.</p>
+<p>Ihhh!!  Falhou!  A propósito&#8230; e essa mensagem que apareceu aqui?  A que diz <strong>use push -f to force</strong>?  Este é um aviso <em>terrível</em>.  Nunca, nunca, JAMAIS use <strong>push -f</strong> para forçar.  Você vai se arrepender.  Acredite em mim por agora.</p>
 
-<p>The reason Rose&#8217;s push succeeded while mine failed is because potato chips do not go well with guacamole. Just kidding! I wanted to see if you were awake, there.</p>
+<p>O motivo pelo qual o push da Rose funcionou enquanto que o meu não é por que batatas chips não combinam bem com guacamole.  Brincadeira!  Só queria ver se você ainda está acompanhando.</p>
 
-<p>The push failed because we both made changes, and so they need to be merged somehow, and Mercurial knows it.</p>
+<p>Meu push falhou porque nós dois fizemos alterações e então elas precisam ser consolidadas de alguma forma.  E o Mercurial sabe disso.</p>
 
-<p>The first thing I&#8217;m going to do is get all those changes that are in the central repository that I don&#8217;t have yet, so I can merge them.</p>
+<p>A primeira coisa que estou fazendo é conferir todas as atualizações que estão no repositório central e que eu não tenho ainda para que eu possa consolidá-las com as minhas.</p>
 
 <div class="codesnippetjoel">
 <div class="codetop"> </div>
 <pre class="joel">
-C:\Users\joel\recipes&gt; <strong>hg incoming</strong>
+C:\Users\joel\receitas&gt; <strong>hg incoming</strong>
 comparing with http://joel.example.com:8000/
 searching for changes
 changeset:   3:689026657682
@@ -662,10 +663,10 @@ tag:         tip
 parent:      1:a52881ed530d
 user:        Rose Hillman &lt;rose@example.com&gt;
 date:        Mon Feb 08 15:29:09 2010 -0500
-summary:     spicier kind of chile
+summary:     pimenta mais ardida
 
 
-C:\Users\joel\recipes&gt; <strong>hg pull</strong>
+C:\Users\joel\receitas&gt; <strong>hg pull</strong>
 pulling from http://joel.example.com:8000/
 searching for changes
 adding changesets
@@ -677,100 +678,100 @@ added 1 changesets with 1 changes to 1 files (+1 heads)
 <div class="codebottom"> </div>
 </div>
 
-<p>There&#8217;s some gibberish there about +1 heads. That&#8217;s because my repository, which used to just have three changes neatly stacked, is now a two-headed monster, with two different changes stacked precariously on top like this:</p>
+<p>O &#8220;+1 heads&#8221; aqui é parte do jargão aqui.  Isto é porque o meu repositório, que eu sabia que continha três alterações em sequência, é agora um monstro de duas cabeças, com duas diferentes alterações empilhadas precariamente, desse jeito:</p>
 
 <div class="i">
   <img src="i/02-repo-6.png" />
 </div>
 
-<p>I&#8217;ve got both versions in my repository now&#8230; I&#8217;ve got my version:</p>
+<p>No momento eu tenho ambas versões no meu repositório&#8230;  Tenho a minha versão:</p>
 
 <div class="codesnippetjoel">
 <div class="codetop"> </div>
 <pre class="joel">
-C:\Users\joel\recipes&gt; <strong>type guac</strong>
-* 2 ripe avocados
-* 1/2 red onion, minced (about 1/2 cup)
-* 1-2 serrano chiles, stems and seeds removed, minced
-* 2 tablespoons cilantro leaves, finely chopped
-* 1 tablespoon of fresh lime or lemon juice
-* 1/2 teaspoon coarse salt
-* A dash of freshly grated black pepper
-* 1/2 ripe tomato, seeds and pulp removed, chopped
+C:\Users\joel\receitas&gt; <strong>type guac</strong>
+* 2 abacates maduros
+* 1/2 cebola roxa picada (cerca de 1/2 xícara)
+* 1-2 pimentas dedo-de-moça, sem talo e sem sementes, picadas
+* 2 colheres de sopa de coentro picado bem fininho
+* 1 colher de sopa de suco de limão
+* 1/2 colher de chá de sal grosso
+* Uma pitada de pimenta-do-reino moída na hora
+* 1/2 tomate maduro, sem pele e sem sementes, picado
 
-Smoosh all ingredients together.
-Serve with potato chips.
+Amasse todos os ingredientes juntos.
+Sirva com batatas chips.
 </pre>
 <div class="codebottom"> </div>
 </div>
 
-<p>And I&#8217;ve got Rose&#8217;s version:</p>
+<p>E também a versão da Rose:</p>
 
 <div class="codesnippetjoel">
 <div class="codetop"> </div>
 <pre class="joel">
-C:\Users\joel\recipes&gt; <strong>hg cat -r 3 guac</strong>
-* 2 ripe avocados
-* 1/2 red onion, minced (about 1/2 cup)
-* 1-2 habanero chiles, stems and seeds removed, minced
-* 2 tablespoons cilantro leaves, finely chopped
-* 1 tablespoon of fresh lime or lemon juice
-* 1/2 teaspoon coarse salt
-* A dash of freshly grated black pepper
-* 1/2 ripe tomato, seeds and pulp removed, chopped
+C:\Users\joel\receitas&gt; <strong>hg cat -r 3 guac</strong>
+* 2 abacates maduros
+* 1/2 cebola roxa picada (cerca de 1/2 xícara)
+* 1-2 pimentas habanero, sem talo e sem sementes, picadas
+* 2 colheres de sopa de coentro picado bem fininho
+* 1 colher de sopa de suco de limão
+* 1/2 colher de chá de sal grosso
+* Uma pitada de pimenta-do-reino moída na hora
+* 1/2 tomate maduro, sem pele e sem sementes, picado
 
-Smoosh all ingredients together.
-Serve with tortilla chips.
+Amasse todos os ingredientes juntos.
+Sirva com salgadinhos tipo nachos.
 </pre>
 <div class="codebottom"> </div>
 </div>
 
-<p>And it&#8217;s up to me to merge them. Luckily, this is easy.</p>
+<p>E é preciso consolidar as duas.  Por sorte, isso é fácil.</p>
 
 <div class="codesnippetjoel">
 <div class="codetop"> </div>
 <pre class="joel">
-C:\Users\joel\recipes&gt; <strong>hg merge</strong>
+C:\Users\joel\receitas&gt; <strong>hg merge</strong>
 merging guac
 0 files updated, 1 files merged, 0 files removed, 0 files unresolved
 (branch merge, don't forget to commit)
 
-C:\Users\joel\recipes&gt; <strong>type guac</strong>
-* 2 ripe avocados
-* 1/2 red onion, minced (about 1/2 cup)
-* 1-2 habanero chiles, stems and seeds removed, minced
-* 2 tablespoons cilantro leaves, finely chopped
-* 1 tablespoon of fresh lime or lemon juice
-* 1/2 teaspoon coarse salt
-* A dash of freshly grated black pepper
-* 1/2 ripe tomato, seeds and pulp removed, chopped
+C:\Users\joel\receitas&gt; <strong>type guac</strong>
+* 2 abacates maduros
+* 1/2 cebola roxa picada (cerca de 1/2 xícara)
+* 1-2 pimentas habanero, sem talo e sem sementes, picadas
+* 2 colheres de sopa de coentro picado bem fininho
+* 1 colher de sopa de suco de limão
+* 1/2 colher de chá de sal grosso
+* Uma pitada de pimenta-do-reino moída na hora
+* 1/2 tomate maduro, sem pele e sem sementes, picado
 
-Smoosh all ingredients together.
-Serve with potato chips.
+Amasse todos os ingredientes juntos.
+Sirva com batatas chips.
 </pre>
 <div class="codebottom"> </div>
 </div>
 
 
-<p>Look! The <strong>hg merge</strong> command took my two heads and combined them together. In this case, since we both edited different parts of the file, there was no conflict at all and the merge went off without a hitch.</p>
+<p>Olha!  O comando <strong>hg merge</strong> combinou as duas cabeças em apenas uma.  Neste caso, como nós editamos o mesmo arquivo em partes diferentes, não houve nenhum conflito e a consolidação funcionou sem nenhum enrosco.</p>
 <div class="cheatcontent" style="margin-top:-65px">
 <div class="cheattop">
 	<div class="command">hg merge</div>
 </div>
-<p class="cheattext">merge two heads  </p>
+<p class="cheattext">mescla duas cabeças</p>
 <img src="i/cheatbot.png" width="241" height="41" />
 </div>
 
 
 
-<p>I still have to commit. This is important. If the merge failed, I could always revert and try again. Since the merge was successful, I&#8217;m going to commit it. Then I&#8217;ll be able to push my changes to the central repository.</p>
+<p>Eu ainda preciso dar commit.  Isto é importante.  Se a consolidação das versões falhar, eu sempre posso reverter e tentar novamente.  Como o merge foi um sucesso, eu agora então vou dar commit para poder transferí-las para o repositório central.</p>
 
 <div class="codesnippetjoel">
 <div class="codetop"> </div>
 <pre class="joel">
-C:\Users\joel\recipes&gt; <strong>hg commit -m "merge"</strong>
+C:\Users\joel\receitas&gt; <strong>hg commit -m "merge"</strong>
 
-C:\Users\joel\recipes&gt; <strong>hg log</strong>
+C:\Users\joel\receitas&gt; <strong>hg log</strong>
 changeset:   4:0849ca96c304
 tag:         tip
 parent:      2:4ecdb2401ab4
@@ -783,17 +784,17 @@ changeset:   3:689026657682
 parent:      1:a52881ed530d
 user:        Rose Hillman &lt;rose@example.com&gt;
 date:        Mon Feb 08 15:29:09 2010 -0500
-summary:     spicier kind of chile
+summary:     pimenta mais ardida
 
 changeset:   2:4ecdb2401ab4
 user:        Joel Spolsky &lt;joel@joelonsoftware.com&gt;
 date:        Mon Feb 08 15:32:01 2010 -0500
-summary:     potato chips. No one can eat just one.
+summary:     batatas chips. Ninguém come uma só.
 
 changeset:   1:a52881ed530d
 user:        Joel Spolsky &lt;joel@joelonsoftware.com&gt;
 date:        Mon Feb 08 14:51:18 2010 -0500
-summary:     Change crunch to smoosh
+summary:     Troca misturar bem por amassar
 
 changeset:   0:c1fb7e7fbe50
 user:        Joel Spolsky &lt;joel@joelonsoftware.com&gt;
@@ -801,13 +802,13 @@ date:        Mon Feb 08 14:50:08 2010 -0500
 summary:     Initial version of guacamole recipe
 
 
-C:\Users\joel\recipes&gt; <strong>hg out</strong>
+C:\Users\joel\receitas&gt; <strong>hg out</strong>
 comparing with http://joel.example.com:8000/
 searching for changes
 changeset:   2:4ecdb2401ab4
 user:        Joel Spolsky &lt;joel@joelonsoftware.com&gt;
 date:        Mon Feb 08 15:32:01 2010 -0500
-summary:     potato chips. No one can eat just one.
+summary:     batatas chips. Ninguém come uma só.
 
 changeset:   4:0849ca96c304
 tag:         tip
@@ -818,7 +819,7 @@ date:        Mon Feb 08 16:07:23 2010 -0500
 summary:     merge
 
 
-C:\Users\joel\recipes&gt; <strong>hg push</strong>
+C:\Users\joel\receitas&gt; <strong>hg push</strong>
 pushing to http://joel.example.com:8000/
 searching for changes
 adding changesets
@@ -829,23 +830,22 @@ added 2 changesets with 2 changes to 1 files
 <div class="codebottom"> </div>
 </div>
 
-<p>And now the central repository has the same thing as I do:</p>
+<p>E agora o repositório central tem o mesmo conteúdo que eu tenho:</p>
 
 
 <img src="i/02-repo-7.png" />
 
 
-<p>OK, I have Rose&#8217;s changes, and my changes, but Rose doesn&#8217;t have my changes yet.</p>
+<p>OK, eu tenho as alterações minhas e as da Rose, mas a Rose ainda não tem as minhas alterações.</p>
 
-<p>One thing I forgot to tell you about Rose. She&#8217;s a doctor. Yep. A medical doctor. Isn&#8217;t that weird? She was a hotshot pediatrician at Mt. Sinai, probably earning five times as much as this crappy joint pays its testers. Nobody really knows why she left the field of medicine. The other testers think something tragic happened. She had a family, once, too; there&#8217;s a picture of a cute ten year old on her desk, but now she lives alone, and we don&#8217;t want to pry.</p>
+<p>Uma coisa que eu esqueci de lhe dizer sobre a Rose.  Ela é médica.  Sim, médica de formação.  Não é esquisito?  Ela era uma destacada pediatra no hospital Mt. Sinai, provavelmente ganhando cinco vezes mais lá do que ganha aqui com essa coisa toda de teste de software.  Ninguém sabe realmente porque ela largou o ramo da medicina.  Os outros testadores acham que ela pode ter passado por alguma tragédia.  Ela parece que tinha uma família também; há uma foto de uma linda menina sobre sua mesa, mas pelo visto a Rose vive sozinha e não queremos nos intrometer.</p>
 
-<p>Rose needs to
-pull the latest, incoming stuff from the repository to get it.</p>
+<p>A Rose precisa baixar as atualizações, todas as coisas novas que entraram no repositório.</p>
 
 <div class="codesnippetrose">
 <div class="codetop"> </div>
 <pre class="rose">
-C:\Users\rose\recipes&gt; <strong>hg pull</strong>
+C:\Users\rose\receitas&gt; <strong>hg pull</strong>
 pulling from http://joel.example.com:8000/
 searching for changes
 adding changesets
@@ -857,35 +857,35 @@ added 2 changesets with 2 changes to 1 files
 <div class="codebottom"> </div>
 </div>
 
-<p>Got it. Now, you may find this a bit odd, but even though Rose pulled those new changes into her repository, <em>they&#8217;re not in her working directory yet.</em></p>
+<p>É isso aí.  Agora, você pode achar isso um pouco estranho, mas por mais que a Rose tenha baixado aquelas atualizações para seu repositório, elas <em>ainda não estão em seu diretório de trabalho</em> no momento.</p>
 
 <div class="codesnippetrose">
 <div class="codetop"> </div>
 <pre class="rose">
-C:\Users\rose\recipes&gt; <strong>type guac</strong>
-* 2 ripe avocados
-* 1/2 red onion, minced (about 1/2 cup)
-* 1-2 habanero chiles, stems and seeds removed, minced
-* 2 tablespoons cilantro leaves, finely chopped
-* 1 tablespoon of fresh lime or lemon juice
-* 1/2 teaspoon coarse salt
-* A dash of freshly grated black pepper
-* 1/2 ripe tomato, seeds and pulp removed, chopped
+C:\Users\rose\receitas&gt; <strong>type guac</strong>
+* 2 abacates maduros
+* 1/2 cebola roxa picada (cerca de 1/2 xícara)
+* 1-2 pimentas habanero, sem talo e sem sementes, picadas
+* 2 colheres de sopa de coentro picado bem fininho
+* 1 colher de sopa de suco de limão
+* 1/2 colher de chá de sal grosso
+* Uma pitada de pimenta-do-reino moída na hora
+* 1/2 tomate maduro, sem pele e sem sementes, picado
 
-Smoosh all ingredients together.
-Serve with tortilla chips.
+Amasse todos os ingredientes juntos.
+Sirva com salgadinhos tipo nachos.
 </pre>
 <div class="codebottom"> </div>
 </div>
 
-<p>See that? She&#8217;s still working with Tortilla chips. Tortilla chips!</p>
+<p>Está vendo?  Ela ainda está trabalhando com salgadinhos tipo nachos.  Nachos!</p>
 
-<p>She <em>does</em> have my new changes somewhere in her repository&#8230;</p>
+<p>Mas ela <em>tem</em> as minhas alterações em algum lugar em seu repositório&#8230;</p>
 
 <div class="codesnippetrose">
 <div class="codetop"> </div>
 <pre class="rose">
-C:\Users\rose\recipes&gt; <strong>hg log</strong>
+C:\Users\rose\receitas&gt; <strong>hg log</strong>
 changeset:   4:0849ca96c304
 tag:         tip
 parent:      3:4ecdb2401ab4
@@ -898,17 +898,17 @@ changeset:   3:4ecdb2401ab4
 parent:      1:a52881ed530d
 user:        Joel Spolsky &lt;joel@joelonsoftware.com&gt;
 date:        Mon Feb 08 15:32:01 2010 -0500
-summary:     potato chips. No one can eat just one.
+summary:     batatas chips. Ninguém come uma só.
 
 changeset:   2:689026657682
 user:        Rose Hillman &lt;rose@example.com&gt;
 date:        Mon Feb 08 15:29:09 2010 -0500
-summary:     spicier kind of chile
+summary:     pimenta mais ardida
 
 changeset:   1:a52881ed530d
 user:        Joel Spolsky &lt;joel@joelonsoftware.com&gt;
 date:        Mon Feb 08 14:51:18 2010 -0500
-summary:     Change crunch to smoosh
+summary:     Troca misturar bem por amassar
 
 changeset:   0:c1fb7e7fbe50
 user:        Joel Spolsky &lt;joel@joelonsoftware.com&gt;
@@ -922,93 +922,93 @@ summary:     Initial version of guacamole recipe
 <div class="cheattop">
 	<div class="command">hg parent</div>
 </div>
-<p class="cheattext">show the changeset that&#8217;s in the working directory </p>
+<p class="cheattext">mostra o changeset que está no diretório de trabalho</p>
 <img src="i/cheatbot.png" width="241" height="41" />
 </div>
 
 
 
-<p>They&#8217;re just not in her working directory. That&#8217;s because she&#8217;s still working off of changeset #2. You can see this with the &#8220;parent&#8221; command:</p>
+<p>As minhas alterações apenas não estão no seu diretório de trabalho.  Isso porque ela ainda está trabalhando no changeset #2.  Você pode ver isso com o comando &#8220;parent&#8221;:</p>
 
 <div class="codesnippetrose">
 <div class="codetop"> </div>
 <pre class="rose">
-C:\Users\rose\recipes&gt; <strong>hg parent</strong>
+C:\Users\rose\receitas&gt; <strong>hg parent</strong>
 changeset:   2:689026657682
 user:        Rose Hillman &lt;rose@example.com&gt;
 date:        Mon Feb 08 15:29:09 2010 -0500
-summary:     spicier kind of chile
+summary:     pimenta mais ardida
 </pre>
 <div class="codebottom"> </div>
 </div>
 
-<p>Mercurial is being nice to us. It&#8217;s always safe to pull; all it does is get us the latest changes that other people have been making. We can switch to working with them later, at our own convenience.<p>
+<p>O Mercurial está sendo legal com a gente.  É sempre seguro baixar atualizações; todo o que ele faz é receber as últimas atualizações que as outras pessoas vinham fazendo.  Podemos passar a utilizá-las e trabalhar com elas mais tarde, ou a nosso critério.</p>
 
-<p>Remember that the <strong>hg up</strong> command with no arguments will change the working directory to the <em>tip</em> (the absolute TOP changeset), in this case number 4:</p>
+<p>Lembre-se de que o comando <strong>hg up</strong> sem argumentos vai atualizar o diretório de trabalho para o <em>topo</em> (o changeset mais recente), neste caso o número 4:</p>
 
 <div class="codesnippetrose">
 <div class="codetop"> </div>
 <pre class="rose">
-C:\Users\rose\recipes&gt; <strong>hg up</strong>
+C:\Users\rose\receitas&gt; <strong>hg up</strong>
 1 files updated, 0 files merged, 0 files removed, 0 files unresolved
 
-C:\Users\rose\recipes&gt; <strong>type guac</strong>
-* 2 ripe avocados
-* 1/2 red onion, minced (about 1/2 cup)
-* 1-2 habanero chiles, stems and seeds removed, minced
-* 2 tablespoons cilantro leaves, finely chopped
-* 1 tablespoon of fresh lime or lemon juice
-* 1/2 teaspoon coarse salt
-* A dash of freshly grated black pepper
-* 1/2 ripe tomato, seeds and pulp removed, chopped
+C:\Users\rose\receitas&gt; <strong>type guac</strong>
+* 2 abacates maduros
+* 1/2 cebola roxa picada (cerca de 1/2 xícara)
+* 1-2 pimentas habanero, sem talo e sem sementes, picadas
+* 2 colheres de sopa de coentro picado bem fininho
+* 1 colher de sopa de suco de limão
+* 1/2 colher de chá de sal grosso
+* Uma pitada de pimenta-do-reino moída na hora
+* 1/2 tomate maduro, sem pele e sem sementes, picado
 
-Smoosh all ingredients together.
-Serve with potato chips.
+Amasse todos os ingredientes juntos.
+Sirva com batatas chips.
 </pre>
 <div class="codebottom"> </div>
 </div>
 
-<p>And now, she&#8217;s looking at the latest version with everybody&#8217;s changes.</p>
+<p>Agora sim ela está vendo a última versão do arquivo, que contém as alterações de todo mundo.</p>
 
-<p>When you&#8217;re working on a team, your workflow is going to look a lot like this:</p>
+<p>Quando você estiver trabalhando em equipe, seu fluxo de trabalho com o Mercurial será algo assim:</p>
 
 <ol>
-  <li>If you haven&#8217;t done so in a while, get the latest version that everyone else is 
-      working off of:</li>
+  <li>Se ainda não tiver feito isso, obtenha a versão mais recente, na qual todo mundo
+      está trabalhando:</li>
   <ul>
       <li>hg pull</li>
       <li>hg up</li>
   </ul>
-  <li>Make some changes</li>
-  <li>Commit them (locally)</li>
-  <li>Repeat steps 2-3 until you&#8217;ve got some nice code that you&#8217;re willing to inflict on everyone else</li>
-  <li>When you&#8217;re ready to share:</li>
+  <li>Faça suas alterações</li>
+  <li>Dê commit nelas (localmente)</li>
+  <li>Repita os passos 2-3 até que você tenha um código legal que você esteja disposto a compartilhar com todo mundo</li>
+  <li>Quando você estiver pronto para compartilhar suas alterações:</li>
   <ul>
-    <li>hg pull to get everyone else&#8217;s changes (if there are any)</li>
-    <li>hg merge to merge them into yours</li>
-    <li>test! to make sure the merge didn&#8217;t screw anything up</li>
-    <li>hg commit (the merge)</li>
+    <li>hg pull para obter as alterações das outras pessoas (se houver)</li>
+    <li>hg merge para incorporar as alterações dos demais às suas</li>
+    <li>testar! para ter certeza de que o resultado do merge não estragou nada</li>
+    <li>hg commit (o resultado do merge)</li>
     <li>hg push</li>
   </ul>
 </ol>
 
-<h2>Test yourself</h2>
+<h2>Teste você mesmo</h2>
 
-<p>Here are the things you should know how to do after reading this tutorial:</p>
+<p>Eis aqui as coisas que você deve saber depois da leitura deste tutorial:</p>
 
 <ol>
-  <li>Set up a central repository and let team members clone off of it</li>
-  <li>Push changes into the central repository</li>
-  <li>Pull changes from the central repository</li>
-  <li>Merge changes from different contributors</li>
+  <li>Configurar um repositório central e permitir que os membros da equipe façam clones a partir dele</li>
+  <li>Transferir alterações para o repositório central</li>
+  <li>Baixar alterações a partir do repositório central</li>
+  <li>Incorporar atualizações de diferentes contribuidores</li>
 </li>
 </ol>
 
 <div class="footer">
  <div class="footernav" id="home" align="center"><a href="index.html"><span class="angleQuote">&#171;</span> Home</a></div>
  
-<div class="footernav" id="comingup">Next, we talk about how to fix <span style="text-decoration: line-through;">misstakes</span> mistakes.</div>
-<div class="footernav" id="next" align="center"><a href="03.html">Next <span class="angleQuote">&#187;</span></a></div>
+<div class="footernav" id="comingup">A seguir, vamos falar sobre como corrigir <span style="text-decoration: line-through;">engnaos</span> enganos.</div>
+<div class="footernav" id="next" align="center"><a href="03.html">Próx. <span class="angleQuote">&#187;</span></a></div>
 
 
  
